@@ -12,7 +12,7 @@ public class TestServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	public void init(){
-		//通知esb组件初始 化  
+		//esb组件初始化  
 		String contextPath = this.getServletContext().getRealPath("/");
 		contextPath= contextPath+"asas";
 		System.out.println("TestServlet 11111111111111111111111111111");
