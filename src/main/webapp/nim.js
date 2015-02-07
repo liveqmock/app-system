@@ -38,7 +38,7 @@
 					component:'nim-plateform',
 					service:'page',
 					method:'orginal',
-					parameters:"{pageUrl:\'" + _pageInfo.htmlPage + "\'}"
+					arguments:"{pageUrl:\'" + _pageInfo.htmlPage + "\'}"
 				},
 				dataType:"json",
 				success: function(data){
@@ -66,7 +66,7 @@
 				component:'nim-plateform',
 				service:'page',
 				method:'html',
-				parameters:parameters
+				arguments:parameters
 			},
 			dataType:"json",
 			success: function(data){

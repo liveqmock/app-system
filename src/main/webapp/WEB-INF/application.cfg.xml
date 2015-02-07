@@ -35,5 +35,6 @@
 			</remoteComponent>
 		-->
 	</components>
-	
+	<!-- 数据配置-->
+	<sessionFactory name="system" cfgFileName="WEB-INF/hibernate.system.xml"/>
 </application>
