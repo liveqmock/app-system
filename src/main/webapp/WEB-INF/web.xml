@@ -1,31 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-	<!-- 初始化  读取server-config.xml 触发其它组件的initial事件 -->
+	<!-- 初始化  读取application.config.xml 加载各组件并发布webservice服务 -->
 	<servlet>
-		<servlet-name>EsbServerInitial</servlet-name>
-		<servlet-class>com.poweruniverse.nim.esb.servlet.EsbServerInitial</servlet-class>
+		<servlet-name>ApplicationInitialServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.ApplicationInitialServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- nsb模块 http请求处理
-		接受客户端http请求 分发至适当的webservice服务 -->
+	<!-- 定时任务 -->
+	<servlet>
+		<servlet-name>scheduleTaskServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.ScheduleTaskServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<!-- 接受客户端http请求 分发至适当的webservice服务 -->
 	<servlet>
 		<servlet-name>httpDispather</servlet-name>
-		<servlet-class>com.poweruniverse.nim.esb.servlet.HTTPRequestDispatcher</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.HTTPRequestDispatcher</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>httpDispather</servlet-name>
 		<url-pattern>/jservice/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 登录servlet -->
+	<servlet>
+		<servlet-name>signServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.SignServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signServlet</servlet-name>
+		<url-pattern>/sign/</url-pattern>
+	</servlet-mapping>
+	<!-- 下载 -->
+	<servlet>
+		<servlet-name>downloadServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.DownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>downloadServlet</servlet-name>
+		<url-pattern>/download/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 上传 -->
+	<servlet>
+		<servlet-name>uploadServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uploadServlet</servlet-name>
+		<url-pattern>/upload/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 获取资源文件 -->
+	<servlet>
+		<servlet-name>getResourcesServlet</servlet-name>
+		<servlet-class>com.poweruniverse.nim.plateform.servlet.GetResourcesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getResourcesServlet</servlet-name>
+		<url-pattern>/resources/nim/*</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 默认首页 -->
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>/nim.html?_pt_=module/index/index.html</welcome-file>
 	</welcome-file-list>
 	
 	<!-- 监听客户端请求 记录在线及已登录用户数量 -->
 	<listener>  
-        <listener-class>com.poweruniverse.nim.listener.SessionListener</listener-class>  
+        <listener-class>com.poweruniverse.nim.plateform.servlet.SessionListener</listener-class>  
     </listener>
     
 	<!-- 会话30分钟超时 -->
