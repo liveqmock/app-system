@@ -1,35 +1,28 @@
 	var _pageInfo = null;
 	var _isLogin = null;
-	var _isDesignMode = false;
 	var _isOriginalChoose = false;//设计时是否在原始页面选择元素
 	var _nim_page_container  = $(window);
 	var loginPageUrl = '';
 	var homePageUrl = '';
-	var ssoLoginPageUrl = '';
 	
 	var	_orginalContent = null;
 	$(document).ready(function(){
-		//显示loading 
+		//显示loading (限定页面高度 使其不出滚动条 避免超出mask覆盖的区域)
 		var h = $(document).height();
 		$("#_pageContent").css("height",h );
 		$('#_pageContent').mask('正在加载页面，请稍候...');
 		
 		//获取页面相关文件
 		var ftlPage = _urlInfo.params._pt_;
-		var htmlPage = ftlPage.substr(0,ftlPage.indexOf('.'))+'.html';
-		var cssPage = htmlPage.substr(0,htmlPage.indexOf('.'))+'.css';
-		var jsPage = htmlPage.substr(0,htmlPage.indexOf('.'))+'.js';
-		var xmlPage = htmlPage.substr(0,htmlPage.indexOf('.'))+'.xml';
 		_pageInfo = {
-			htmlPage:htmlPage,
+			htmlPage:ftlPage.substr(0,ftlPage.lastIndexOf('.'))+'.html',
 			ftlPage:ftlPage,
-			cssPage:cssPage,
-			jsPage:jsPage,
-			xmlPage:xmlPage
+			cssPage:ftlPage.substr(0,ftlPage.lastIndexOf('.'))+'.css',
+			jsPage:ftlPage.substr(0,ftlPage.lastIndexOf('.'))+'.js',
+			xmlPage:ftlPage.substr(0,ftlPage.lastIndexOf('.'))+'.xml'
 		};
 		//判断是否为设计模式
-    	if(_urlInfo.host == '127.0.0.1' && _urlInfo.port == "8080"){
-			_isDesignMode = true;
+    	if(_isDesignMode && !_urlInfo.params.workMode){
 			//加载原始页面
 			$.ajax({
 				url: "http://"+_urlInfo.host+":"+_urlInfo.port+"/jservice/", 
@@ -43,22 +36,92 @@
 				dataType:"json",
 				success: function(data){
 					_orginalContent = $($.parseHTML(data.content));
-//					_orginalContent = $(data.content);
 				}
 			});
 		}
 
-		//必须以这种方式加载css 保证其中引用的路径正确
-		$("head").append('<link href="module/'+ _pageInfo.cssPage+'" type="text/css" rel="stylesheet">');
-		//加载页面html文件
 		
-		var params = _urlInfo.params._ps_;
-		var parameters = null;
-		if(params==null){
-			parameters = "{pageUrl:'"+ _pageInfo.htmlPage+"'}";
-		}else{
-			parameters = "{pageUrl:'"+ _pageInfo.htmlPage+"',params:"+unescape(params)+"}";
-		}
+
+		//加载页面html文件
+		loadHTML(_pageInfo.htmlPage,{},function(htmlResult){
+			//加载css
+			if(htmlResult.cssExists){
+				loadCSS(_pageInfo.cssPage);
+			}
+			loginPageUrl = htmlResult.loginPage;//本系统登录页面
+			homePageUrl = htmlResult.homePage;//本系统首页
+			
+			if(htmlResult.jsExists){
+				//有同名的js文件 要在解析xml之前加载！
+				 loadJS(_pageInfo.jsPage,function(){
+		        	if(!_urlInfo.params.originMode){
+		        		//加载xml
+		        		loadXML(_pageInfo.xmlPage,_urlInfo.params._ps_,true,function(){
+				        	//
+				        	if(_page_widget!=null){
+								_page_widget.ready();
+							}
+							//创建designer
+					    	if(_isDesignMode && !_urlInfo.params.workMode){
+								showDesigner();
+							}
+			        	});
+		        	}
+				});
+			}else{
+				//没有同名的js文件 直接加载xml
+				if(!_urlInfo.params.originMode){
+	        		//加载xml
+	        		loadXML(_pageInfo.xmlPage,_urlInfo.params._ps_,true,function(){
+			        	//
+			        	if(_page_widget!=null){
+							_page_widget.ready();
+						}
+						//创建designer
+				    	if(_isDesignMode && !_urlInfo.params.workMode){
+							showDesigner();
+						}
+		        	});
+	        	}
+			}
+	       
+			
+			//显示html内容
+			var pageContent = htmlResult.content;
+			//取得html中的script标记内容
+			var scriptSrcReg = /\<script[^\>]+src[\s\r\n]*=[\s\r\n]*([\'\"])([^\>\1]+)\1[^\>]*>/;
+			var scriptReg = /<script.*>*?<\/script>/;
+			var scripts = pageContent.match(scriptReg);
+			if(scripts!=null){
+				for(var i=0;i<scripts.length;i++){
+					$(scripts[i]).appendTo($('head'));
+				}
+				//清除html中的script标记
+				pageContent = pageContent.replace(scriptReg ,'');
+			}
+			//取得link css标记内容
+			var linkReg = /<link.*?\/>/;
+			var links = pageContent.match(linkReg);
+			if(links!=null){
+				for(var i=0;i<links.length;i++){
+					$(links[i]).appendTo($('head'));
+				}
+				//清除html中的script标记
+				pageContent = pageContent.replace(linkReg ,'');
+			}
+			//处理要显示的内容 如果是唯一元素 设置其高度100%
+			pageContent = $($.parseHTML(pageContent));
+			if(pageContent.length ==1){
+				pageContent.css('height','100%')
+			}
+			//显示
+			pageContent.appendTo($('#_pageContent'));
+			//解除高度限制 允许出现滚动条
+			$("#_pageContent").css("height",'');
+		});
+	});
+	
+	function loadHTML(htmlPage,paramsJson,callback){
 		$.ajax({
 			url: "http://"+_urlInfo.host+":"+_urlInfo.port+"/jservice/", 
 			type: "POST", 
@@ -66,87 +129,76 @@
 				component:'nim-plateform',
 				service:'page',
 				method:'html',
-				arguments:parameters
+				arguments:"{pageUrl:'"+ htmlPage+"',params:"+unescape(LUI.Util.stringify(paramsJson))+"}"
 			},
 			dataType:"json",
-			success: function(data){
-				_isLogin = data.isLogged;//记录用户当前是否已登录
-				loginPageUrl = data.loginPage;//本系统登录页面
-				homePageUrl = data.homePage;//本系统首页
-				ssoLoginPageUrl = data.ssoLoginPage;//sso系统url
-
-				if(data.success){
-					$("#_pageContent").css("height",'');
-//					alert(data.content);
-					
-					var pageContent = $($.parseHTML(data.content));
-					if(pageContent.length ==1){
-						pageContent.css('height','100%')
-					}
-					
-					
-					pageContent.appendTo($('#_pageContent'));
-			    	//加载当前js文件（必须在后面的javascript之前加载）
-					
-					jQuery.ajax({
-			            crossDomain: true,
-			            dataType: "script",
-			            cache:true,
-			            url: '/jservice/?application=nsb&service=page&method=js&parameters={pageUrl:\'' + _pageInfo.jsPage + '\'}',
-			            success: function(){
-							//加载javascript模板信息
-							var templateString = data.template;
-							if(templateString!=null){
-								templateString = templateString.replace(/\\n/g,"\n").replace(/\\"/g,'\"').replace(/\\'/g,"\'");
-						    	$("body").append(templateString);
-							}
-							
-					    	//加载自动生成的javascript代码(在代码底部 会关闭#_pageContent层的mask)
-							if(data.script!=null){
-								try{
-									$("body").append('<script language="JavaScript">'+data.script+'</script>');
-									_page_widget.ready(params);
-								}catch(e){
-									console.error("加载自动生成的javascript代码失败:"+e);
-									console.error(e);
-									$('#_pageContent').unmask();
-								}
-							}else{
-								//无xml文件
-								$('#_pageContent').unmask();
-							}
-							
-					    	
-					    	//创建designer
-					    	if(_isDesignMode){
-//					    		$("#_original").appendTo($('#_pageContent'));
-								showDesigner();
-							}
-						}
-			        })
-			        
-//					$.getScript('/jservice/?application=nsb&service=page&method=js&parameters={pageUrl:\'' + _pageInfo.jsPage + '\'}',function(){});
-			    	//$("body").append('<script src="/jservice/?application=nsb&service=page&method=js&parameters={pageUrl:\'' + _pageInfo.jsPage + '\'}" language="JavaScript"></script>');
-			    	
-			    	//
-				}else if (data.needsLogin == true && data.isLogged == false){
-					window.location = loginPageUrl; 
+			success: function(htmlResult){
+				if(htmlResult.success){
+					callback.apply(this,[htmlResult]);
 				}else{
-					alert(data.errorMsg);
-					//创建designer
-			    	if(_isDesignMode){
-//			    		$("#_original").appendTo($('#_pageContent'));
-			    		showDesigner();
-			    	}
+					alert(htmlResult.errorMsg);
 				}
 			},
 			error:function(){
-				alert("访问服务器失败！");
+				alert("获取html失败：服务器返回错误");
 			}
 		});
-		
-	});
+	}
 	
+	function loadXML(xmlPage,xmlParams,isIndependent,callback){
+		if(callback==null){
+	        alert("获取xml失败：必须提供callback参数");		
+	    }
+		//加载xml的解析结果（javascript）
+		//独立解析的时候 会将子页面解析为页面对象
+		var arguments = null;
+		if( _urlInfo.params._ps_==null){
+			arguments = "{isIndependent:"+isIndependent+"}";
+		}else{
+			arguments = "{isIndependent:"+isIndependent+",params:"+unescape( xmlParams)+"}";
+		}
+		$.ajax({
+	        crossDomain: true,
+	        dataType: "script",
+	        cache:true,
+	        url: "/jservice/nim-plateform/page/analyse/"+xmlPage+"?arguments="+arguments, 
+	        success: function(){
+	        	callback.apply(this,[]);
+			}
+	    });
+	}
+	
+	//读取module目录中 与html页面关联的同名js文件
+	var cachedCssFile = {};
+	function loadCSS(cssPage){
+		if(cachedCssFile[cssPage]==null){
+			cachedCssFile[cssPage] = true;
+			//必须以这种方式加载css 保证css文件中 引用的图片等路径正确
+			$("head").append('<link href="module/'+ cssPage+'?rnd='+Math.random()+'" type="text/css" rel="stylesheet">');
+		}
+	}
+	
+	//读取module目录中 与html页面关联的同名js文件
+	var cachedJsFile = {};
+	function loadJS(jsPage,callback){
+		if(cachedJsFile[jsPage]==null){
+			cachedJsFile[jsPage] = false;
+			//加载同名js文件
+	    	jQuery.ajax({
+	            crossDomain: true,
+	            dataType: "script",
+	            cache:true,
+	            url: '/jservice/nim-plateform/page/js/'+jsPage+'?rnd=' + noCacheFlag,
+	            success:function(){
+	            	cachedJsFile[jsPage] = true;
+	            	if(callback!=null){
+				        callback.apply(this,[]);
+				    }
+	            }
+	        })
+		}
+		
+	}
 	
 	/**
 	 * 定义ForceWindow类构造函数
@@ -248,25 +300,7 @@
 	
 	}
 	
-	function logout(){
-		$.ajax({
-			url: "/jservice/", 
-			type: "POST", 
-			data:{
-				component:'nim-plateform',
-				service:'data',
-				method:'logout'
-			},
-			dataType:"json",
-			context:this,
-			success: function(result){
-				window.location = loginPageUrl;
-			},
-			error:function(){
-				LUI.Message.info("错误","访问服务器失败！");
-			}
-		});
-	}
+
 	
 	
 //////////////////////////////////////////////////////////

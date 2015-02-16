@@ -20,7 +20,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>httpDispather</servlet-name>
-		<url-pattern>/jservice/</url-pattern>
+		<url-pattern>/jservice/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 登录servlet -->
@@ -30,7 +30,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>signServlet</servlet-name>
-		<url-pattern>/sign/</url-pattern>
+		<url-pattern>/sign/*</url-pattern>
 	</servlet-mapping>
 	<!-- 下载 -->
 	<servlet>

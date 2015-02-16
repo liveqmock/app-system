@@ -6,6 +6,13 @@
 	<link href="/resources/nim/jquery-ui-1.11.0/jquery-ui.css" rel="stylesheet">
 
 	<script src="/resources/nim/jquery-ui-1.11.0/external/jquery-1.10.2.js"></script>
+	
+	<!-- jquery cookie-->
+	<script src="/resources/nim/jquery.cookie-1.4.1/jquery.cookie-1.4.1.js"></script>
+	
+	<!-- js-beauty 格式化js代码 -->
+	<script src="/resources/nim/js-beauty/js-beauty.js"></script>
+	
 	<script src="/resources/nim/jquery-ui-1.11.0/jquery-ui.js"></script>
 	<script src="/resources/nim/jquery-ui-1.11.0/jquery-ui-datepicker-zh.js"></script>
 	
@@ -77,6 +84,12 @@
 	<script>
 		//解析url
 		var _urlInfo = LUI.Util.parseURL(window.location);
+		var noCacheFlag = Math.random();
+		var _isDesignMode = false;
+		if(_urlInfo.host == '127.0.0.1' && _urlInfo.port == "8080"){
+			_isDesignMode = true;
+			noCacheFlag = 1;
+		}
 	</script>
 
 	<!--文件上传-->
@@ -112,9 +125,6 @@
 	<link href="/resources/nim/jquery-ui-1.11.0/external/combobox/combobox.css" rel="stylesheet">
 	<script src="/resources/nim/jquery-ui-1.11.0/external/combobox/combobox.js"></script>
 
-	<script src="nim.js"></script>
-	<link rel="stylesheet" href="nim.css">
- 
 	<style>
 		body {
 			font-size: 62.5%;
@@ -190,10 +200,19 @@
 		}
 	</style>
         
-        
-	
 </head>
 <body>
+    <script>
+	    jQuery.ajax({
+	        crossDomain: true,
+	        dataType: "script",
+	        cache:true,
+	        url: 'nim.js?rnd=' + noCacheFlag ,
+	        success: function(){
+			}
+	    });
+    	$("head").append('<link href="/nim.css?rnd='+Math.random()+'" type="text/css" rel="stylesheet">');
+	</script>
 	<!--工作区-->
 	<div id="_pageContent" class="ui-layout-center" style="padding:0px;width: 100%;"></div>
 	<div id="_designer" class="ui-layout-east" style="border-left:1px solid #8db2e3;border-right:0px;border-top:0px;border-bottom:0px;"></div>

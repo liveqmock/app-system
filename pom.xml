@@ -22,7 +22,6 @@
 		</dependency>
 	</dependencies>
 	
-	
 	<build>
 		<!-- 编译的war文件名称 -->
 		<finalName>app-system</finalName>
@@ -41,6 +40,7 @@
 	            <artifactId>maven-jetty-plugin</artifactId>
 	            <configuration>
 					<contextPath>/</contextPath>
+					<webDefaultXml>src/main/webapp/WEB-INF/jetty-default.xml</webDefaultXml> 
 				</configuration>  
 	        </plugin>
 			

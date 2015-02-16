@@ -1,18 +1,12 @@
 @charset "utf-8";
 
-#hhi{font-size: 16px; font-family:"Microsoft YaHei";}
 #hhi .w1000{ width:1000px; margin:0 auto;}
 #hhi .l{ float:left;}
 #hhi .r{ float:right;}
 .clear{ clear:both;}
-#hhi ul{ margin:0; padding:0; list-style:none;}
-#hhi div,#hhi ul,#hhi li,#hhi h1,#hhi h2,#hhi h3,#hhi h4,#hhi h5,#hhi h6,#hhi pre,#hhi form,#hhi fieldset,#hhi input,#hhi textarea,#hhi p,#hhi th, #hhi td {border-collapse:collapse; border-spacing:0;}
 table { border-collapse:collapse; border-spacing:0;}
 #hhi .overflow{ overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap;}
 #hhi .block{ display:block; float:left;}
-#hhi img{ border:0;}
-#hhi a{ text-decoration:none;}
-#hhi em{ font-style:normal;}
 /**颜色**/
 #hhi .white{ color:#fff;}
 #hhi .light-bule{ color:#c5cbd7;}
@@ -95,40 +89,7 @@ table { border-collapse:collapse; border-spacing:0;}
 
 /********内容开始**/
 #hhi .con{}
-/**常用登录系统**/
-#hhi .cydlxt{ width:890px; height:100px; float:left;}
-#hhi .cydlxt ul{ list-style: none outside none;margin: 0;padding: 0;height:100px;}
-#hhi .cydlxt li{ float:left; margin-right:8px;text-align: center;}
-#hhi .cydlxt li a{ text-decoration: none;color:#666; width:140px; height:24px; border-bottom:#e6e6e6 3px solid; padding-top:73px; font-size:14px; font-weight:bold; color:#666; display:block; float:left;}
-#hhi .cydlxt li a:hover{ color:#358;border-bottom:#358 3px solid; color:#358; }
 
-#hhi .cydlxt li a.cybgxzbg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 0 no-repeat; }
-#hhi .cydlxt li a.cybgxzbg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px 0 no-repeat;}
-
-#hhi .cydlxt li a.dlhdzgnwbg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 -111px no-repeat;}
-#hhi .cydlxt li a.dlhdzgnwbg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px -111px no-repeat;}
-
-#hhi .cydlxt li a.dlhdzgyxbg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 -224px no-repeat;}
-#hhi .cydlxt li a.dlhdzgyxbg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px -224px no-repeat;}
-
-#hhi .cydlxt li a.dlzgoabg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 -336px no-repeat;}
-#hhi .cydlxt li a.dlzgoabg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px -336px no-repeat;}
-
-#hhi .cydlxt li a.dlhdgcnwbg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 -447px no-repeat;}
-#hhi .cydlxt li a.dlhdgcnwbg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px -447px no-repeat;}
-
-#hhi .cydlxt li a.dlhdgcoabg{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) 0 -559px no-repeat;}
-#hhi .cydlxt li a.dlhdgcoabg:hover{ background:url(module/hdzg2/index/images/cyxtdl-icon.png) -161px -559px no-repeat;}
-
-/**二维码**/
-#hhi .ewm{ width:98px; height:100px; float:left; text-align:center;}
-#hhi .ewm a{ color:#666; font-size:12px; text-decoration: none;}
-#hhi .ewm a:hover{ color:#f60;}
-
-/**二维码**/
-#hhi .action {
-	cursor:hand;cursor:pointer;
-}
 
 
 /****************************************************/

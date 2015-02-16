@@ -18,9 +18,9 @@
 			 webserviceSrc="D:/data/workspace/nim-base/src/main/java/" >
 	<pages>
 		<!-- 本系统登陆页面(必需) -->
-		<login page="/nim.html?_pt_=hdzg2/login/login.html"/>
+		<login page="/nim.html?_pt_=login/login.html"/>
 		<!-- 本系统首页 (必需)-->
-		<home page="/nim.html?_pt_=hdzg2/index/index.html"/>
+		<home page="/nim.html?_pt_=index/index.html"/>
 		<!-- 单点登录系统登录页面URL
 		<sso page=""/> -->
 	</pages>
@@ -30,9 +30,7 @@
 		<localComponent name="nim-plateform"/>
 		<!--远程服务组件配置-->
 		<!--
-			<remoteComponent name="esb" ip="127.0.0.1" port="8081">
-				 <webservice clientClass="com.poweruniverse.nim.esb.Component" clientServerClass="nim-esb"/>
-			</remoteComponent>
+			<remoteComponent name="esb" ip="127.0.0.1" port="8081"/>
 		-->
 	</components>
 	<!-- 数据配置-->
