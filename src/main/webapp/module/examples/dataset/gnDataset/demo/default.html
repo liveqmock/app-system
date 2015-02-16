@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="jservice/nim-plateform/plugin/css/flexSlider-1.2/flexslider.css" type="text/css" media="screen" />
+<script src="jservice/nim-plateform/plugin/js/flexSlider-1.2/jquery.flexslider-min.js"></script>
+
+<pre id="example-code"  name="example-code" class="syntaxhighlighter">
+	
+</pre>
+<!--源码-->
+<pre id='source' style="display:none;">
+	//系统解析配置信息 自动生成的代码
+    var _dataset_bmDataset = LUI.Datasource.gnDataset.createNew({
+    name:'bmDataset',
+    label:'部门数据集',
+    xiTongDH:'system',
+    gongNengDH:'bm',
+    caoZuoDH:'list',
+    primaryFieldName:'buMenDM',
+    autoLoad:true,
+    start:0,
+    limit:0,
+    listenerDefs:{"onLoad":"onLoad"},
+    fields:[{"name":"buMenBH","fieldType":"string","fieldLength":200},{"name":"buMenMC","fieldType":"string","fieldLength":200}],
+    filters:[],
+    sorts:[]
+    });
+    var _dataset_bmDataset_init_data = {
+    start:0,
+    limit:0,
+    totalCount:3,
+    rows:[{"buMenDM":73,"buMenBH":"0199","buMenMC":"供应商"},{"buMenDM":72,"buMenBH":"0101","buMenMC":"供应链管理"},{"buMenDM":1,"buMenBH":"01","buMenMC":"华电重工"}]
+    };
+    _page_widget.register('dataset',_dataset_bmDataset);
+    //为数据源加载数据
+    _dataset_bmDataset.loadData(_dataset_bmDataset_init_data); 
+</pre>
+<!--设计图-->
+<div id="flexslider" class="flexslider" style="display:none;">
+    <ul class="slides" >
+    	<li>
+    		<img src="module/index/images/inacup_samoa.jpg" />
+    		<p class="flex-caption">Captions and cupcakes. Winning combination.</p>
+    	</li>
+    	<li>
+    		<a href="http://flex.madebymufffin.com"><img src="module/index/images/inacup_pumpkin.jpg" /></a>
+    		<p class="flex-caption">This image is wrapped in a link!</p>
+    	</li>
+    	<li>
+    		<img src="module/index/images/inacup_donut.jpg" />
+    	</li>
+    	<li>
+    		<img src="module/index/images/inacup_vanilla.jpg" />
+    	</li>
+    </ul>
+</div>

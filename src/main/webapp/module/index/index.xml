@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="false" label="华电重工管理信息系统-首页" onLoad="onIndexPageLoaded">
+  <import component="importSubpage" label="header" name="import_header" autoLoad="true" renderto="#header" pageURL="header/header.html">
+    <parameters component="parameters"/>
+  </import>
+  <import component="importSubpage" label="footer" name="import_footer" autoLoad="true" renderto="#footer" pageURL="footer/footer.html">
+    <parameters component="parameters"/>
+  </import>
+</page>

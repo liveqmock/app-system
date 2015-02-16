@@ -1,0 +1,224 @@
+/**banner-**/
+
+.header {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+.header .head {
+    background: none repeat scroll 0 0 #3F6F8C;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+}
+.header .head .l-hy {
+    color: #FFFFFF;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 300px;
+}
+.header .head .r-menu {
+    color: #C5CBD7;
+    float: right;
+    height: 23px;
+    line-height: 30px;
+    width: 110px;
+}
+.header .head .r-menu ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.header .head .r-menu li {
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 16px;
+    margin-left: 20px;
+    margin-top: 7px;
+    width: 16px;
+}
+.header .head .r-menu li.off {
+    background: url("images/base-icon.png") no-repeat scroll 0 -116px rgba(0, 0, 0, 0);
+}
+.header .head .r-menu li.off:hover {
+    background: url("images/base-icon.png") no-repeat scroll -86px -116px rgba(0, 0, 0, 0);
+}
+.header .head .r-menu li.help {
+    background: url("images/base-icon.png") no-repeat scroll 0 -36px rgba(0, 0, 0, 0);
+    margin-left: 10px;
+}
+.header .head .r-menu li.help:hover {
+    background: url("images/base-icon.png") no-repeat scroll -84px -36px rgba(0, 0, 0, 0);
+}
+.header .head .r-menu li.set {
+    background: url("images/base-icon.png") no-repeat scroll 10px -70px rgba(0, 0, 0, 0);
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 0;
+    position: relative;
+    width: 36px;
+}
+.header .head .r-menu li.set:hover {
+    background: url("images/base-icon.png") no-repeat scroll -74px -70px #2D5D7A;
+    height: 30px;
+    margin-top: 0;
+    width: 36px;
+}
+.header .head .r-menu li.set .setUL {
+    background: none repeat scroll 0 0 #2D5D7A;
+    display: none;
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    top: 30px;
+    width: 70px;
+    z-index: 11;
+}
+.header .head .r-menu li.set .setUL span {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 70px;
+}
+.header .head .r-menu li.set .setUL span a {
+    color: #C5CBD7;
+}
+.header .head .r-menu li.set .setUL span a:hover {
+    color: #FFFFFF;
+}
+.header .head .r-menu li .set-hover {
+    background: none repeat scroll 0 0 #2D5D7A;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.header .head .r-menu li .set-hover b {
+    border-color: #8C8C8C #2D2D2D #2D2D2D;
+}
+.header .head .r-menu li.set:hover .setUL {
+    display: block;
+}
+.header .head .login {
+    background: url("images/base-icon.png") no-repeat scroll left 7px rgba(0, 0, 0, 0);
+    float: right;
+    height: 30px;
+    padding-left: 12px;
+    width: 50px;
+}
+.header .head .login:hover {
+    background: url("images/base-icon.png") no-repeat scroll 1px -146px rgba(0, 0, 0, 0);
+    float: right;
+    height: 30px;
+    padding-left: 12px;
+    width: 50px;
+}
+.header .head .login a {
+    color: #C5CBD7;
+    line-height: 30px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.header .head .login a:hover {
+    color: #FFFFFF;
+}
+.header .headnav  {
+  margin: 0 auto;
+    width: 1000px;
+}
+.header .headnav  .logo {
+    float: left;
+}
+
+.logo-img{
+	width:150px; 
+	height:128px; 
+	background:url(images/logo.png) 0 0px no-repeat; vertical-align:0px;
+}
+
+
+.header .headnav  .nav-menu {
+    float: right;
+    font-family: "Microsoft YaHei","文鼎CS中黑";
+    font-weight: bold;
+    height: 76px;
+    line-height: 80px;
+    padding-right: 5px;
+    width: 610px;
+}
+.header .headnav  .nav-menu ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.header .headnav  .nav-menu li {
+    float: left;
+    padding-left: 46px;
+}
+.header .headnav  .nav-menu li a {
+    color: #666666;
+    text-decoration: none;
+}
+.header .headnav  .nav-menu li a:hover, .header .headnav  .nav-menu li a.on {
+    color: #FF6600;
+}
+.header .headnav  .nav-menu li .ksdh {
+    background: url("images/base-icon.png") no-repeat scroll 0 -193px rgba(0, 0, 0, 0);
+    height: 22px;
+    vertical-align: -3px;
+    width: 22px;
+}
+.header .con .banner .info .arrow {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #AAAAAA;
+    border-image: none;
+    border-style: solid;
+    border-width: 10px;
+    left: 860px;
+    position: absolute;
+    top: -20px;
+    z-index: -9;
+}
+
+
+
+.header em {
+    font-style: normal;
+}
+
+.header .b {
+    font-weight: bold;
+}
+.header .f16 {
+    font-size: 16px;
+}
+.header .orange {
+    color: #FF6600;
+}
+
+.header .f14 {
+    font-size: 14px;
+}
+.header .white {
+    color: #FFFFFF;
+}
+.header .f12 {
+    font-size: 12px;
+  margin: 0 auto;
+    width: 1000px;
+}
+.header .headnav .tzxx {
+    float: left;
+    padding: 8px 0;
+}
+
+
+.header .headnav .tzxx .tzxx-con {
+    float: left;
+    line-height: 30px;
+    padding: 10px;
+    width: 320px;
+}

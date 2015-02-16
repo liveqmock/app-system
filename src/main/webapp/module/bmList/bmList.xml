@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="合格供方-列表" onLoad="onPageRady">
+  <import component="importSubpage" label="页面-header" name="cmp_importSubpage_header" autoLoad="true" renderto="#hhi-header" pageURL="hdzg2/header/header.html">
+    <parameters component="parameters"/>
+  </import>
+  <import component="importSubpage" label="页面-footer" name="importSubpage_footer" autoLoad="true" renderto="#hhi-footer" pageURL="hdzg2/footer/footer.html">
+    <parameters component="parameters"/>
+  </import>
+  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_zsgf" label="正式供方显示" name="cmp_displayGrid_zsgf" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#zslist" pagiTarget="#zsListpage">
+    <dataset component="gnDataset" label="正式供方" name="cmp_gnDataset_zsgf" autoLoad="true" xiTongDH="hdzg" gongNengDH="gyshggf" caoZuoDH="list" start="0" limit="20">
+      <properties component="properties">
+        <property component="simpleProperty" fieldType="string" label="供方编号" name="gongFangBH"/>
+        <property component="simpleProperty" name="gongFangFL" label="供方分类" fieldType="string"/>
+        <property component="simpleProperty" name="gongFangDJ" label="供方等级" fieldType="string"/>
+        <property component="simpleProperty" name="piZhunSJ" label="批准时间" fieldType="date"/>
+        <property component="simpleProperty" name="gongHuoFW" label="供货范围" fieldType="string"/>
+        <property component="simpleProperty" name="shiFouYX" label="是否有效" fieldType="boolean"/>
+        <property component="simpleProperty" name="heGeGFDM" label="合格供方代码" fieldType="int"/>
+        <property component="complexProperty" fieldType="object" label="供方审批" name="gongFangSP">
+          <properties component="properties">
+            <property component="complexProperty" fieldType="object" label="供方资格申请" name="gongFangZGSQ">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="单位" name="danWei"/>
+                <property component="simpleProperty" fieldType="int" label="代码" name="daiMa"/>
+              </properties>
+            </property>
+            <property component="complexProperty" fieldType="object" label="事业部" name="shiYeBu">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="部门名称" name="buMenMC"/>
+              </properties>
+            </property>
+            <property component="simpleProperty" name="gongFangSPDM" label="供方审批代码" fieldType="int"/>
+          </properties>
+        </property>
+      </properties>
+      <filters component="filters">
+        <filter component="propertyFilter" label="是否正式供方" type="boolean" property="shiFouZSGF" operator="eq" value="true"/>
+      </filters>
+      <sorts component="sorts"/>
+    </dataset>
+    <columns component="gridColumns">
+      <column fieldType="int" component="gridColumn" label="行号" name="@index" renderto="#GYS_xuHao" renderTemplate="{{@index}}"/>
+      <column fieldType="string" component="gridColumn" label="单位" name="gongFangSP" renderto="#GYS_gongYingSMC" renderTemplate="{{gongFangSP.gongFangZGSQ.danWei}}"/>
+      <column fieldType="string" component="gridColumn" label="事业部" name="gongFangSP" renderto="#GYS_shiYeB" renderTemplate="{{gongFangSP.shiYeBu.buMenMC}}"/>
+      <column fieldType="string" component="gridColumn" label="供方编号" name="gongFangBH" renderto="#GYS_gongFangBH" renderTemplate="{{gongFangBH}}"/>
+      <column fieldType="string" component="gridColumn" label="供方等级" name="gongFangDJ" renderto="#GYS_gongFangDJ" renderTemplate="{{gongFangDJ}}"/>
+      <column fieldType="date" component="gridColumn" label="批准时间" name="piZhunSJ" renderto="#GYS_piZhunRQ" renderTemplate="{{substr piZhunSJ 0 10}}"/>
+      <column fieldType="string" component="gridColumn" label="供货范围" name="gongHuoFW" renderto="#GYS_gongHuoFW" renderTemplate="{{gongHuoFW}}" showTips="true"/>
+      <column fieldType="boolean" component="gridColumn" label="是否有效" name="shiFouYX" renderto="#GYS_zhuangTai" renderTemplate="{{#if shiFouYX}}    有效 {{else}}    停用 {{/if}}"/>
+    </columns>
+  </grid>
+  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_lsgf" label="临时供方显示" name="cmp_displayGrid_lsgf" autoLoad="true" autoRender="true" headerLines="1" footerLines="0" renderto="#lslist" pagiTarget="#lsListpage" onRowRendered="onGridRowRender">
+    <dataset component="gnDataset" label="临时供方" name="cmp_gnDataset_lsgf" autoLoad="false" xiTongDH="hdzg" gongNengDH="gyshggf" caoZuoDH="list" start="0" limit="20">
+      <properties component="properties">
+        <property component="complexProperty" fieldType="object" label="供方审批" name="gongFangSP">
+          <properties component="properties">
+            <property component="complexProperty" fieldType="object" label="供方资格申请" name="gongFangZGSQ">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="单位" name="danWei"/>
+                <property component="simpleProperty" fieldType="int" label="代码" name="daiMa"/>
+              </properties>
+            </property>
+            <property component="complexProperty" fieldType="object" label="事业部" name="shiYeBu">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="部门名称" name="buMenMC"/>
+              </properties>
+            </property>
+            <property component="simpleProperty" name="gongFangSPDM" label="供方审批代码" fieldType="int"/>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="gongFangBH" label="供方编号" fieldType="string"/>
+        <property component="simpleProperty" name="gongFangFL" label="供方分类" fieldType="string"/>
+        <property component="simpleProperty" name="gongFangDJ" label="供方等级" fieldType="string"/>
+        <property component="simpleProperty" name="piZhunSJ" label="批准时间" fieldType="date"/>
+        <property component="simpleProperty" name="gongHuoFW" label="供货范围" fieldType="string"/>
+        <property component="simpleProperty" name="shiFouYX" label="是否有效" fieldType="boolean"/>
+        <property component="complexProperty" fieldType="set" label="合格供方项目" name="xms">
+          <properties component="properties">
+            <property component="complexProperty" fieldType="object" label="商机" name="shangJi">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="项目名称" name="xiangMuMC"/>
+              </properties>
+            </property>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="heGeGFDM" label="合格供方代码" fieldType="int"/>
+      </properties>
+      <filters component="filters">
+        <filter component="propertyFilter" label="是否正式供方" type="boolean" property="shiFouZSGF" operator="eq" value="false"/>
+      </filters>
+      <sorts component="sorts"/>
+    </dataset>
+    <columns component="gridColumns">
+      <column fieldType="int" component="gridColumn" label="行号" name="@index" renderto="#GYS_xuHao" renderTemplate="{{@index}}"/>
+      <column fieldType="string" component="gridColumn" label="单位" name="gongFangSP" renderto="#GYS_gongYingSMC" renderTemplate="{{gongFangSP.gongFangZGSQ.danWei}}"/>
+      <column fieldType="string" component="gridColumn" label="事业部" name="gongFangSP" renderto="#GYS_shiYeB" renderTemplate="{{gongFangSP.shiYeBu.buMenMC}}"/>
+      <column fieldType="string" component="gridColumn" label="供方编号" name="gongFangBH" renderto="#GYS_gongFangBH" renderTemplate="{{gongFangBH}}"/>
+      <column fieldType="string" component="gridColumn" label="供方等级" name="gongFangDJ" renderto="#GYS_gongFangDJ" renderTemplate="{{gongFangDJ}}"/>
+      <column fieldType="date" component="gridColumn" label="批准时间" name="piZhunSJ" renderto="#GYS_piZhunRQ" renderTemplate="{{substr piZhunSJ 0 10}}"/>
+      <column fieldType="string" component="gridColumn" label="供货范围" name="gongHuoFW" renderto="#GYS_gongHuoFW" renderTemplate="{{gongHuoFW}}" showTips="true"/>
+      <column fieldType="boolean" component="gridColumn" label="是否有效" name="shiFouYX" renderto="#GYS_zhuangTai" renderTemplate="{{#if shiFouYX}}    有效 {{else}}    停用 {{/if}}"/>
+      <column fieldType="set" component="gridColumn" label="合格供方项目" name="xms" renderto="#GYS_duiYingXM" renderTemplate="[{{#each xms}}     {{shangJi.xiangMuMC}} {{/each}}]" showTips="true"/>
+    </columns>
+  </grid>
+  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_qbgf" label="全部供方显示" name="cmp_displayGrid_qbgf" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#qblist" pagiTarget="#qbListpage">
+    <dataset component="gnDataset" label="全部供方" name="cmp_gnDataset_qbgf" autoLoad="false" xiTongDH="hdzg" gongNengDH="gyshggf" caoZuoDH="list" start="0" limit="20">
+      <properties component="properties">
+        <property component="complexProperty" fieldType="object" label="供方审批" name="gongFangSP">
+          <properties component="properties">
+            <property component="complexProperty" fieldType="object" label="供方资格申请" name="gongFangZGSQ">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="单位" name="danWei"/>
+                <property component="simpleProperty" fieldType="int" label="代码" name="daiMa"/>
+              </properties>
+            </property>
+            <property component="complexProperty" fieldType="object" label="事业部" name="shiYeBu">
+              <properties component="properties">
+                <property component="simpleProperty" fieldType="string" label="部门名称" name="buMenMC"/>
+              </properties>
+            </property>
+            <property component="simpleProperty" name="gongFangSPDM" label="供方审批代码" fieldType="int"/>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="gongFangBH" label="供方编号" fieldType="string"/>
+        <property component="simpleProperty" name="gongFangFL" label="供方分类" fieldType="string"/>
+        <property component="simpleProperty" name="gongFangDJ" label="供方等级" fieldType="string"/>
+        <property component="simpleProperty" name="piZhunSJ" label="批准时间" fieldType="date"/>
+        <property component="simpleProperty" name="gongHuoFW" label="供货范围" fieldType="string"/>
+        <property component="simpleProperty" name="shiFouYX" label="是否有效" fieldType="boolean"/>
+        <property component="simpleProperty" name="heGeGFDM" label="合格供方代码" fieldType="int"/>
+      </properties>
+      <filters component="filters"/>
+      <sorts component="sorts"/>
+    </dataset>
+    <columns component="gridColumns">
+      <column fieldType="int" component="gridColumn" label="行号" name="@index" renderto="#GYS_xuHao" renderTemplate="{{@index}}"/>
+      <column fieldType="string" component="gridColumn" label="单位" name="gongFangSP" renderto="#GYS_gongYingSMC" renderTemplate="{{gongFangSP.gongFangZGSQ.danWei}}"/>
+      <column fieldType="string" component="gridColumn" label="事业部" name="gongFangSP" renderto="#GYS_shiYeB" renderTemplate="{{gongFangSP.shiYeBu.buMenMC}}"/>
+      <column fieldType="string" component="gridColumn" label="供方编号" name="gongFangBH" renderto="#GYS_gongFangBH" renderTemplate="{{gongFangBH}}"/>
+      <column fieldType="string" component="gridColumn" label="供方等级" name="gongFangDJ" renderto="#GYS_gongFangDJ" renderTemplate="{{gongFangDJ}}"/>
+      <column fieldType="date" component="gridColumn" label="批准时间" name="piZhunSJ" renderto="#GYS_piZhunRQ" renderTemplate="{{substr piZhunSJ 0 10}}"/>
+      <column fieldType="string" component="gridColumn" label="供货范围" name="gongHuoFW" renderto="#GYS_gongHuoFW" renderTemplate="{{gongHuoFW}}" showTips="true"/>
+      <column fieldType="boolean" component="gridColumn" label="是否有效" name="shiFouYX" renderto="#GYS_zhuangTai" renderTemplate="{{#if shiFouYX}}    有效 {{else}}    停用 {{/if}}"/>
+    </columns>
+  </grid>
+  <tab component="tabSelector" label="正式临时全部" name="cmp_tabSelector_46" renderto="#tab_grxx" activeClass="t_active" onSelect="onTabpageChoosed"/>
+</page>

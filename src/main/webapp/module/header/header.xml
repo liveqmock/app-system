@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="subpage" needsLogin="true" label="页面-header" name="page-header" width="1" height="1"/>

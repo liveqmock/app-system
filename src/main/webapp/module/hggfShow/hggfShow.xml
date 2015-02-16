@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="供方申请" onLoad="onGfsqShowPageLoad">
+  <import component="importSubpage" label="申请信息" name="import_sqxx" autoLoad="true" onLoad="onSqxxLoaded" renderto="#div_ck_txxx" pageURL="gys/gfsq/jiBenXX/jiBenXX.html">
+    <parameters component="parameters">
+      <parameter component="parameter" parameterType="int" label="参数" name="id" value="${(params.zrgfsp.shuJuID)!0}"/>
+    </parameters>
+  </import>
+  <record component="gnRecord" label="对象-供应商准入申请" name="zrgfspDatasource" autoLoad="true" xiTongDH="hdzg" gongNengDH="zrgfsp" caoZuoDH="select" id="${(params.zrgfsp.id?c)!0}">
+    <properties component="properties">
+      <property component="complexProperty" name="gongFangZGSQ" label="供方资格申请" fieldType="object">
+        <properties component="properties">
+          <property component="simpleProperty" name="danWei" label="单位" fieldType="string"/>
+        </properties>
+      </property>
+      <property component="simpleProperty" name="shiFouZXFWL" label="是否咨询服务类" fieldType="boolean"/>
+      <property component="simpleProperty" name="shiFouJAL" label="是否建安类" fieldType="boolean"/>
+      <property component="simpleProperty" name="shiFouSJL" label="是否设计类" fieldType="boolean"/>
+      <property component="simpleProperty" name="shiFouYWWBL" label="是否业务外包类" fieldType="boolean"/>
+      <property component="simpleProperty" name="shiFouSBCLL" label="是否设备材料类" fieldType="boolean"/>
+      <property component="simpleProperty" name="xiuGaiRQ" label="修改日期" fieldType="date"/>
+      <property component="simpleProperty" name="gongFangBH" label="供方编号" fieldType="string"/>
+    </properties>
+  </record>
+  <form component="dataDisplayForm" label="数据展示表单" name="cmp_dataDisplayForm_18" datasourceType="public" datasourceName="zrgfspDatasource" autoLoad="true" renderto="#gys_top" renderType="rela" autoRender="true">
+    <fields component="formFields">
+      <field fieldType="object" component="objectDisplay" name="gongFangZGSQ" label="单位" renderType="rela" width="120px" height="22px" renderto="#gongYingS_NAME" renderTemplate="{{gongFangZGSQ.danWei}}"/>
+      <field component="dateDisplay" renderType="rela" width="120px" height="22px" name="xiuGaiRQ" label="修改日期" fieldType="date" renderto="#shenQing_date" renderTemplate="{{substr xiuGaiRQ 0 10}}"/>
+      <field component="stringDisplay" renderType="rela" width="120px" height="22px" name="gongFangBH" label="供方编号" fieldType="string" renderto="#gongYingS_BianHao" renderTemplate="{{gongFangBH}}"/>
+    </fields>
+    <buttons component="buttons"/>
+  </form>
+</page>

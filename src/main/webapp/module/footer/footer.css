@@ -1,0 +1,110 @@
+.footer {
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+  margin-top: 10px;
+}
+.footer .cydlxt {
+    float: left;
+    height: 100px;
+    width: 890px;
+}
+.footer .cydlxt ul {
+    height: 100px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.footer .cydlxt li {
+    float: left;
+    margin-right: 8px;
+    text-align: center;
+}
+.footer .cydlxt li a {
+    border-bottom: 3px solid #E6E6E6;
+    color: #666666;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 24px;
+    padding-top: 73px;
+    text-decoration: none;
+    width: 140px;
+}
+.footer .cydlxt li a:hover {
+    border-bottom: 3px solid #335588;
+    color: #335588;
+}
+.footer .cydlxt li a.cybgxzbg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.cybgxzbg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px 0 rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdzgnwbg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 -111px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdzgnwbg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px -111px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdzgyxbg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 -224px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdzgyxbg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px -224px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlzgoabg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 -336px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlzgoabg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px -336px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdgcnwbg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 -447px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdgcnwbg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px -447px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdgcoabg {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll 0 -559px rgba(0, 0, 0, 0);
+}
+.footer .cydlxt li a.dlhdgcoabg:hover {
+    background: url("images/cyxtdl-icon.png") no-repeat scroll -161px -559px rgba(0, 0, 0, 0);
+}
+
+
+.footer .yqlj {
+    font-size: 14px;
+    height: 14px;
+    padding: 18px 0;
+    text-align: center;
+}
+
+.footer .yqlj a {
+    border-right: 1px solid #DDDDDD;
+    color: #999999;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 15px;
+}
+.footer .ewm {
+    float: left;
+    height: 100px;
+    text-align: center;
+    width: 98px;
+}
+.footer .erweima {
+    background: url("images/erweima.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 61px;
+    vertical-align: 0;
+    width: 61px;
+}
+
+
+.footer .bottom {
+    background: none repeat scroll 0 0 #334455;
+    color: #CBD6E2;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+}

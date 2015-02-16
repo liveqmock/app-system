@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+/* sss-20140411---重工 */
+
+/****公用css****/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, th, td { margin:0; padding:0; font-family:"Microsoft YaHei" }
+table { border-collapse:collapse; border-spacing:0; }
+img,abbr { border:0; }
+caption, cite, code, { font-style:normal; font-weight:normal; }
+ol, ul { list-style:none; }
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+a,a:hover{ text-decoration:none;}
+.clear{ clear:both;}
+
+
+#hhi{}
+#hhi .w1000{ width:1000px; margin:0 auto;}
+
+/**颜色**/
+.white{ color:#fff;}
+.light-bule{ color:#c5cbd7;}
+.orange{ color:#f60;}
+
+/**字号**/
+.f12{ font-size:12px;}
+.f14{ font-size:14px;}
+.f16{ font-size:16px;}
+.f18{ font-size:18px;}
+.f20{ font-size:20px;}
+
+.b{ font-weight:bold;}
+
+/**head**/
+#hhi .head{ width:100%; height:30px; line-height:30px; background:#3f6f8c;}
+#hhi .head .l-hy{ float:left; width:300px; color:#fff; height:30px; line-height:30px;}
+#hhi .head .r-menu{ float:right; width:110px; color:#c5cbd7; height:23px; line-height:30px;}
+#hhi .head .r-menu li{ float:right; margin-left:20px; width:16px; height:16px; display:block; float:right; margin-top:7px; cursor:pointer;}
+#hhi .head .r-menu li.off{ background:url(images/base-icon.png) 0px -116px no-repeat;}
+#hhi .head .r-menu li.off:hover{ background:url(images/base-icon.png) -86px -116px no-repeat;}
+#hhi .head .r-menu li.help{ background:url(images/base-icon.png) 0px -36px no-repeat; margin-left:10px; }
+#hhi .head .r-menu li.help:hover{ background:url(images/base-icon.png) -84px -36px no-repeat;}
+
+#hhi .head .r-menu li.set{ background:url(images/base-icon.png) 10px -70px no-repeat; position:relative; width:36px; height:30px; margin-top:0; margin-left:10px;}
+#hhi .head .r-menu li.set:hover{ background:url(images/base-icon.png) #2d5d7a -74px -70px no-repeat; width:36px; height:30px; margin-top:0;}
+
+#hhi .head .r-menu li.set .setUL{ position:absolute; top:30px; left:0; width:70px; background:#2d5d7a; font-size:12px; display:none; z-index:11;}
+#hhi .head .r-menu li.set .setUL span{ height:24px; line-height:24px; width:70px; float:left; text-align:center;}
+#hhi .head .r-menu li.set .setUL span a{ color:#c5cbd7;}
+#hhi .head .r-menu li.set .setUL span a:hover{ color:#fff;}
+#hhi .head .r-menu li .set-hover{ background:#2d5d7a; color:#FFF; font-weight:bold;}
+#hhi .head .r-menu li .set-hover b{border-color:#8c8c8c #2d2d2d #2d2d2d;}
+
+#hhi .head .login{ width:50px; background:url(images/base-icon.png) left 7px no-repeat; height:30px; float:right; padding-left:12px;}
+#hhi .head .login:hover{ width:50px; background:url(images/base-icon.png) 1px -146px no-repeat; height:30px; float:right; padding-left:12px;}
+#hhi .head .login a{ color:#c5cbd7; padding:0 10px; line-height:30px; }
+#hhi .head .login a:hover{ color:#fff; }
+
+/****导航nav****/
+#hhi .nav{ height:80px; }
+#hhi .nav .logo{ float:left;}
+#hhi .nav .nav-menu{ width:650px; line-height:80px; float:right; font-family:"文鼎CS中黑"; font-weight:bold; height:76px;}
+#hhi .nav .nav-menu li{ padding:0 25px; float:left;}
+#hhi .nav .nav-menu li a{ color:#666;}
+#hhi .nav .nav-menu li a:hover{ color:#358;}
+#hhi .nav .nav-menu li .ksdh{ width:22px; height:22px; background:url(images/base-icon.png) 0 -193px no-repeat;}
+
+/*登陆背景图 -轮换大区域*/
+#hhi .lunhuan{width:100%;height:500px;position:relative;}
+#hhi .lunhuan #lunhuanback{width:100%;height:500px;position:absolute;left:0px;top:0px;overflow:hidden;}
+#hhi .lunhuan #lunhuanback p{width:100%;height:500px;position:absolute;left:0px;top:0px;opacity:0;filter:alpha(opacity=0);background-repeat:no-repeat;background-position:50% 0px;}
+#hhi .lunhuan .lunhuan_main{width:1000px;height:500px;margin:0 auto;position:relative;}
+
+/*登陆box */
+#hhi .lunhuan .login-box{ width:300px; height:320px; position:absolute; right:0; top:90px; z-index:10;} 
+#hhi .lunhuan .login-box .topbg{ width:300px; height:48px; line-height:48px; text-align:center; color:#fff; font-weight:bold; font-size:22px; background:url(images/login-box-topbg.png) center top no-repeat;}
+#hhi .lunhuan .login-box .conbg{ width:240px; height:272px; padding:30px 30px 0 30px; background:#fff; filter:alpha(opacity=95); opacity:0.95; border-radius:0 0 10px 10px; }
+#hhi .lunhuan .login-box .conbg .username,#hhi .lunhuan .login-box .conbg .password{ width:240px; height:38px; border-radius:2px; border:#b5b5b5 1px solid;}
+#hhi .lunhuan .login-box .conbg .username .l{ width:38px; height:38px; background:url(images/base-icon.png) #cacaca 9px -233px no-repeat; float:left;}
+#hhi .lunhuan .login-box .conbg .password .l{ width:38px; height:38px; background:url(images/base-icon.png) #cacaca 9px -276px no-repeat; float:left;}
+#hhi .lunhuan .login-box .conbg .username .r .inputbg01,#hhi .lunhuan .login-box .conbg .password .r .inputbg01{ background:#eee; border:none; float:left; height:38px; line-height:38px; width:192px; padding-left:10px; color:#666; font-size:16px;}
+#hhi .lunhuan .login-box .conbg .remember{ color:#666; font-size:14px; margin-top:25px;}
+#hhi .lunhuan .login-box .conbg .submit{ margin-top:30px;}
+#hhi .lunhuan .login-box .conbg .submit .submit-icon{ border-radius:2px; background:#f89020; width:240px; height:40px; line-height:40px; text-align:center; color:#fff; font-size:16px; word-spacing:2px; cursor:pointer; border:none;  }
+#hhi .lunhuan .login-box .conbg .submit .submit-icon:hover{ background:#f70;}
+/*轮换中间区域*/
+#lunbonum{height:11px;line-height:11px;position:absolute;left:470px;top:480px;z-index:5;}
+#lunbonum li{width:11px;height:11px;float:left;margin-right:9px;background:url(images/login-on.png) 0 -21px no-repeat;cursor:pointer;}
+#lunbonum .lunboone{background:url(images/login-on.png) 0 0 no-repeat;cursor:pointer;}
+
+.logo-img {
+    background: url("images/logo.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 51px;
+    vertical-align: 0;
+    width: 188px;
+}
+
+/**友情链接**/
+#hhi .yqlj{ height:14px; padding:18px 0; font-size:14px; text-align:center;}
+#hhi .yqlj a{ padding:0 15px; line-height:14px; height:14px; border-right:#ddd 1px solid; color:#999;}
+#hhi .yqlj a:hover{ color:#666;}
+/**底部**/
+#hhi .footer{ background:#345; color:#cbd6e2; font-size:12px; text-align:center; line-height:24px;}
+
+
