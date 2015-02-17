@@ -89,4 +89,5 @@
 
 .flexslider ol,.flexslider ul{
 	list-style: none outside none;
+	padding-left: 0;
 }

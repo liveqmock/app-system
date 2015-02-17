@@ -211,7 +211,7 @@ table { border-collapse:collapse; border-spacing:0;}
 }
 /**展开、关闭 切换按钮**/
 .nim-tree-node-switch{
-	background-image: url("resources/nim/light-ui/images/tree-icon.png");
+	background-image: url("resources/plateform/light-ui/images/tree-icon.png");
 	background-attachment: scroll;
     background-color: rgba(0, 0, 0, 0);
     background-repeat: no-repeat;
@@ -292,27 +292,27 @@ table { border-collapse:collapse; border-spacing:0;}
     width: 16px;
 }
 .nim-tree-node-icon-open{
-    background-image: url("resources/nim/light-ui/images/tree-icon.png");
+    background-image: url("resources/plateform/light-ui/images/tree-icon.png");
 	background-position: -110px -16px;
     margin-right: 2px;
     vertical-align: top;
 }
 
 .nim-tree-node-icon-close{
-    background-image: url("resources/nim/light-ui/images/tree-icon.png");
+    background-image: url("resources/plateform/light-ui/images/tree-icon.png");
 	background-position: -110px 0;
     margin-right: 2px;
     vertical-align: top;
 }
 
 .nim-tree-node-icon-loading{
-	background-image: url("resources/nim/light-ui/images/tree-loading.gif");
+	background-image: url("resources/plateform/light-ui/images/tree-loading.gif");
 	margin-right: 2px;
     vertical-align: top;
 }
 
 .nim-tree-node-icon-leaf{
-	background-image: url("resources/nim/light-ui/images/tree-icon.png");
+	background-image: url("resources/plateform/light-ui/images/tree-icon.png");
 	background-position: -110px -32px;
     margin-right: 2px;
     vertical-align: top;
@@ -328,7 +328,7 @@ table { border-collapse:collapse; border-spacing:0;}
 }
 /** 子元素容器 左侧连接线**/
 .nim-tree .nim-tree-line {
-    background: url("resources/nim/light-ui/images/tree-line.gif") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("resources/plateform/light-ui/images/tree-line.gif") repeat-y scroll 0 0 rgba(0, 0, 0, 0);
 }
 
 /** 节点**/
@@ -387,7 +387,7 @@ table { border-collapse:collapse; border-spacing:0;}
 
 /** 文件上传按钮**/
 .nim-setfield-file-uploader {
-    background: url("resources/nim/light-ui/images/file-upload-btn.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("resources/plateform/light-ui/images/file-upload-btn.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
     color: #FFFFFF;
     display: block;
@@ -425,7 +425,7 @@ table { border-collapse:collapse; border-spacing:0;}
 
 /** 文件 类型 图标 **/
 .nim-file-type-icon-16 {
-    background: url("resources/nim/light-ui/images/file_icon_16.gif") no-repeat scroll -421px -83px rgba(0, 0, 0, 0);
+    background: url("resources/plateform/light-ui/images/file_icon_16.gif") no-repeat scroll -421px -83px rgba(0, 0, 0, 0);
     display: inline-block;
     height: 22px;
     width: 26px;

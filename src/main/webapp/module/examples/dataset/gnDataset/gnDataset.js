@@ -15,15 +15,14 @@ function onExamplesPageLoaded(){
 	});
 }
 
-function showExamplePage(exampleItem){
-	document.getElementById("demo-frame").src = this.url;//
+function showDemoPage(url){
+	document.getElementById("demo-frame").src = url;//
 	//隐藏查看源码和查看设计过程的按钮
 	$('#sourceCodeDisplayHandler').hide();
 	$('#sourceDesignDisplayHandler').hide();
 }
 
 //子页面调用此方法 设置source 并显示‘查看源码’按钮
-
 function setExampleSource(docString){
 	myCodeMirror.setValue(docString);
 	$('#sourceCodeDisplayHandler').show();

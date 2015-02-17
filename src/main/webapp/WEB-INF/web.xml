@@ -59,7 +59,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>getResourcesServlet</servlet-name>
-		<url-pattern>/resources/nim/*</url-pattern>
+		<url-pattern>/resources/plateform/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 默认首页 -->

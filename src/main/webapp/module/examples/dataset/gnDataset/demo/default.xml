@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<page component="page" label="示例-数据集-功能数据集-自动加载">
+<page component="page" label="示例-数据集-功能数据集-自动加载" needsLogin="true">
   <dataset onLoad="onLoad" component="gnDataset" label="部门数据集" name="bmDataset" autoLoad="true" xiTongDH="system" gongNengDH="bm" caoZuoDH="list" start="0" limit="0">
     <properties component="properties">
       <property component="simpleProperty" name="buMenBH" label="部门编号" fieldType="string"/>

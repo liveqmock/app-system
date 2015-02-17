@@ -10,8 +10,8 @@
 		//显示loading (限定页面高度 使其不出滚动条 避免超出mask覆盖的区域)
 		var h = $(document).height();
 		$("#_pageContent").css("height",h );
-		$('#_pageContent').mask('正在加载页面，请稍候...');
-		
+		$('#_pageContent').mask('正在加载页面...');
+
 		//获取页面相关文件
 		var ftlPage = _urlInfo.params._pt_;
 		_pageInfo = {
@@ -57,10 +57,8 @@
 		        	if(!_urlInfo.params.originMode){
 		        		//加载xml
 		        		loadXML(_pageInfo.xmlPage,_urlInfo.params._ps_,true,function(){
-				        	//
-				        	if(_page_widget!=null){
-								_page_widget.ready();
-							}
+				        	//关闭mask
+			        		LUI.Page.instance.unmask();
 							//创建designer
 					    	if(_isDesignMode && !_urlInfo.params.workMode){
 								showDesigner();
@@ -73,10 +71,8 @@
 				if(!_urlInfo.params.originMode){
 	        		//加载xml
 	        		loadXML(_pageInfo.xmlPage,_urlInfo.params._ps_,true,function(){
-			        	//
-			        	if(_page_widget!=null){
-							_page_widget.ready();
-						}
+	        			//关闭mask
+			        	LUI.Page.instance.unmask();
 						//创建designer
 				    	if(_isDesignMode && !_urlInfo.params.workMode){
 							showDesigner();
@@ -84,8 +80,6 @@
 		        	});
 	        	}
 			}
-	       
-			
 			//显示html内容
 			var pageContent = htmlResult.content;
 			//取得html中的script标记内容

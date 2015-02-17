@@ -4,3 +4,8 @@
     vertical-align: 0;
     width: 367px;
 }
+
+.flexslider ol,.flexslider ul{
+	list-style: none outside none;
+	padding-left: 0;
+}
