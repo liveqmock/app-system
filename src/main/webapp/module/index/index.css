@@ -9,7 +9,10 @@
 }
 
 .cmp_menu_container{float:left; padding:5px 0 10px 0;font-size: 1em;}
-.cmp_menu_container ul{ margin:15px 0 0 0; padding:0;list-style: none outside none;}
+.cmp_menu_container ul{ 
+	padding:0;
+	list-style: none outside none;
+}
 
 .cmp_menu_grp{ background:#fcfcfc; margin:0; padding:0; cursor:pointer;}
 .cmp_menu_grp .cmp_menu_grp_title{ 
@@ -24,8 +27,10 @@
 }
 .cmp_menu_grp em.zmzx_down01{background-position:0 -85px;}
 
-.cmp_menu_item{ background:#fcfcfc; margin:0; padding:0; cursor:pointer;}
-.cmp_menu_item .cmp_menu_item_title{ 
+.cmp_submenu{ 
+	background:#fcfcfc; margin:0; padding:0; 
+}
+.cmp_submenu .cmp_menu_item_title{ 
 	display:inline-block; 
 	color:#999999; 
 	line-height:22px; 
