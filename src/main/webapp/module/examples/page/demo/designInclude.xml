@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="示例-页面-设计器引用子页面" onLoad="onPageLoad">
+  <import component="importSubpage" label="子页面" name="cmp_importSubpage_4" autoLoad="true" pageURL="examples/page/demo/demoChild.html" renderto="#childContent">
+    <parameters component="parameters"/>
+  </import>
+</page>

@@ -1,0 +1,39 @@
+一、说明&lt;br&gt;<br>
+	目标页面由html文件，css文件，js文件以及记录设计结果的xml文件组成&lt;br&gt;<br>
+	其中，html文件及css文件，由美工事先制作完成，js文件及xml文件在开发过程中产生<br>
+二、html文件<br>
+  其实是常规意义上html文件的片段，仅包含原body标记内的部分，不包含html标记、head标记内容，及body标记本身。<br>
+   常规html:<br>
+  	&lt;html&gt;<br>
+  		&lt;head&gt;<br>
+  			&lt;title&gt;标题&lt;/title&gt;<br>
+  			&lt;link href=''&gt;<br>
+  			&lt;link href=''&gt;<br>
+  			&lt;script href=''&gt;&lt;/script&gt;<br>
+  			&lt;script href=''&gt;&lt;/script&gt;<br>
+  		&lt;/head&gt;<br>
+  		&lt;body&gt;<br>
+  			&lt;div&gt; 页面内容...&lt;/div&gt;<br>
+  		&lt;/body&gt;<br>
+  	&lt;/html&gt;<br>
+  nim系统的html：<br>
+  	&lt;div&gt; 页面内容...&lt;/div&gt;<br>
+
+  如果当前页面需要引用同名js,同名css以外的内容，可在html页面中，加入相应的引用：<br>
+	&lt;link href=''&gt;<br>
+	&lt;link href=''&gt;<br>
+	&lt;script href=''&gt;&lt;/script&gt;<br>
+	&lt;script href=''&gt;&lt;/script&gt;<br>
+	&lt;div&gt; 页面内容...&lt;/div&gt;<br>
+三、js文件<br>
+	最好不要在js文件中，直接写浏览器加载后会自动运行的代码，应将javascript代码写在 function函数中 ，由相应的事件调用(如页面的加载事件)。<br>
+	注：多次加载子页面时，不会重复加载子页面的js文件
+四、css文件<br>
+五、xml文件<br>
+	记录设计器的设计内容，主要包括当前页面的标题，是否需要登录等。如果是用于弹出窗口的子页面，还需要定义窗口的高度和宽度。
+六、文件加载顺序<br>
+	通过nim系统访问目标页面时，仅需在地址栏提供html文件的地址，如果在同一目录下存在同名的js,css,xml文件，系统加载html文件后，<br>
+	会先加载html文件中引用的第三方js和css文件，然后按照css-js-xml的顺序继续加载同名的其它文件（xml文件，会被解析为一系列的javascript代码加载）。<br>
+	
+	
+	

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="示例-页面-地址栏参数引用子页面" onLoad="onPageLoad"/>

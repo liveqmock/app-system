@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="subpage" label="示例-子窗口" width="240px" height="300px" name="example_subpage"/>

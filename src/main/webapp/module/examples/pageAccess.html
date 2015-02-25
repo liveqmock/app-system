@@ -1,0 +1,27 @@
+一、页面URL<br>
+	一个有效的nim地址，至少应该包括下列几个部分：<br>
+	协议，ip，端口[可选]，基础页面，目标页面<br>
+	例如：http://127.0.0.1:8080/nim.html?_pt_=index/index.html<br>
+	
+	其他参数说明<br>
+	1、显示/隐藏设计器[可选]：workMode<br>
+		workMode=false：设计模式，显示设计器  （默认值）<br>
+		workMode=true：工作模式，不显示设计器<br>
+	2、原型模式[可选]：originMode<br>
+		originMode=false：根据xml文件定义,解析生成动态页面（默认值）<br>
+		originMode=true：显示静态页面，不进行xml文件解析<br>
+	3、目标页面[必选]：_pt_<br>
+		系统目录中，页面文件的位置:<br>
+		_pt_=index/index.html 表示打开 {context}/module/index/index.html 页面<br>
+		_pt_=examples/page/index.html 表示打开 {context}/module/examples/page/index.html 页面<br>
+	4、传递给目标页面的参数[可选]：_ps_<br>
+		JSONObject格式的字符串<br>
+		http://127.0.0.1:8080/nim.html?_pt_=index/index.html&_ps_={code:1,name:'keJi'}<br>
+	5、通过url加载子页面
+		_ct_：子页面地址
+		_cs_：子页面参数
+		_ce_：父页面中以id指定的目标元素
+		
+		获取子页面，并显示到目标位置
+		例子：http://127.0.0.1:8080/nim.html?_pt_=index/index.html&_ct_=examples/pageAccess.html&_cs_={aaa:1,bbb:2}&_ce_=rightContent
+		index页面加载完成后，加载pageAccess页面并显示在index页面的rightContent元素内
