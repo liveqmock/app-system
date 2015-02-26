@@ -1,0 +1,17 @@
+.tab { line-height:35px; border-bottom:#ddd 1px solid;margin: 0; padding: 0;list-style: none outside none;margin: 0;padding: 0;}
+.tab li{float:left; display:block; cursor:pointer; padding:0 10px; color:#666;font-size:16px; float:left; }
+.tab li.actived,.tab li:hover{padding:0 10px; border-bottom:3px solid #f60; color:#333;font-weight:bold; height:32px;line-height:35px; }
+
+.tab_content { width:100%; position:relative; padding-bottom:4px; padding-top:1px;}
+
+.design-img {
+    background: url("images/design-default.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 456px;
+    vertical-align: 0;
+    width: 367px;
+}
+
+.flexslider ol,.flexslider ul{
+	list-style: none outside none;
+	padding-left: 0;
+}

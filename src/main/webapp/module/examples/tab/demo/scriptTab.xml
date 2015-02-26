@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" label="示例-标签选择-代码" onLoad="onPageLoad">
+</page>

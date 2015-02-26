@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" label="示例-标签选择-设计器" onLoad="onPageLoad">
+  <tab component="tabSelector" label="标签选择" name="tab" renderto="#tab_menu" autoRender="true" activeClass="actived"/>
+</page>

@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/resources/flexSlider-1.2/flexslider.css" type="text/css" />
+<script src="/resources/flexSlider-1.2/jquery.flexslider-min.js"></script>
+
+<div id="original" style="padding:10px;width:560px;" >
+	<ul id="tab_menu" class="tab" style="width:540px; height:35px;" >
+        <li href="#tab_div_1" class="actived">标签1</li>
+        <li href="#tab_div_2" class="" >标签2</li>
+        <li href="#tab_div_3" class="disabled" >标签3</li>
+    </ul>
+    
+    <div id="tab_div_1" class ="tab_content" style="display:block;padding:10px;">
+        	标签1相关内容
+    </div>
+    <div id="tab_div_2" class ="tab_content" style="display:block;padding:10px;">
+        	标签2相关内容
+    </div>
+    <div id="tab_div_3" class ="tab_content" style="display:block;padding:10px;">
+        	标签3相关内容
+    </div>
+</div> 
+<!--源码-->
+<pre id='source' style="display:none;">
+	    var _tab_tab = LUI.Tab.createNew({
+	        "name":"tab",
+	        "renderto":"#tab_menu",
+	        "autoRender":"true",
+	        "activeClass":"actived"
+	    });
+</pre>    
+
