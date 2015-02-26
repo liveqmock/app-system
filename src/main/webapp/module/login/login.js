@@ -91,3 +91,8 @@ function login(){
 		timer=setInterval(autoRun,4000);
     });
 
+
+function onHeaderLoad(){
+	$('#header').find('.r-menu').hide();
+  	$('#header').find('.headnav').hide();
+}
