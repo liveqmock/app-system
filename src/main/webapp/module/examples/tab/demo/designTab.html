@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="/resources/flexSlider-1.2/flexslider.css" type="text/css" />
-<script src="/resources/flexSlider-1.2/jquery.flexslider-min.js"></script>
-
 <div style="padding:10px;width:560px;" >
 	<ul id="tab_menu" class="tab" style="width:540px; height:35px;" >
         <li href="#tab_div_1" class="actived">标签1</li>
@@ -18,55 +15,3 @@
         	标签3相关内容
     </div>
 </div> 
-<!--源码-->
-<pre id='source' style="display:none;">
-	//html页面 代码片段
-    <div style="padding:10px;width:560px;" >
-        <ul id="tab_menu" class="tab" style="width:540px; height:35px;" >
-            <li href="#tab_div_1" class="actived">标签1</li>
-            <li href="#tab_div_2" class="" >标签2</li>
-            <li href="#tab_div_3" class="" >标签3</li>
-        </ul>
-
-        <div id="tab_div_1" class ="tab_content" style="display:block;padding:10px;">
-                标签1相关内容
-        </div>
-        <div id="tab_div_2" class ="tab_content" style="display:none;padding:10px;">
-                标签2相关内容
-        </div>
-        <div id="tab_div_3" class ="tab_content" style="display:none;padding:10px;">
-                标签3相关内容
-        </div>
-    </div> 
-    
-	//系统自动生成的javascript代码
-    var _tab_tab = LUI.Tab.createNew({
-    	"component":"tabSelector",
-        "label":"标签选择",
-        "name":"tab",
-        "renderto":"#tab_menu",
-        "autoRender":"true",
-        "activeClass":"actived",
-        "listenerDefs":{}
-    }); 
-</pre>
-
-<!--设计图-->
-<div id="flexslider" class="flexslider" style="display:none;">
-    <ul class="slides" >
-    	<li>
-    		<img src="module/examples/tab/demo/images/inacup_samoa.jpg" />
-    		<p class="flex-caption">Captions and cupcakes. Winning combination.</p>
-    	</li>
-    	<li>
-            <img src="module/examples/tab/demo/images/inacup_pumpkin.jpg" />
-    		<p class="flex-caption">This image is wrapped in a link!</p>
-    	</li>
-    	<li>
-    		<img src="module/examples/tab/demo/images/inacup_donut.jpg" />
-    	</li>
-    	<li>
-    		<img src="module/examples/tab/demo/images/inacup_vanilla.jpg" />
-    	</li>
-    </ul>
-</div>

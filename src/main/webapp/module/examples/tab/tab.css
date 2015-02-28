@@ -5,7 +5,6 @@
     font-weight: 700;
 }
 
-
 .examples-container h2 {
     color: #333333;
     font-size: 24px;
@@ -68,25 +67,4 @@
     padding: 2% 4%;
     text-decoration: none;
     text-shadow: 1px 1px #FFFFFF;
-}
-
-
-
-.syntaxhighlighter {
-    border-radius: 5px;
-    background: none repeat scroll 0 0 #EEEEEE;
-    font-size: 1em !important;
-    overflow: auto !important;
-    position: relative !important;
-    width: 100% !important;
-    box-sizing: border-box;
-}
-
-.syntaxhighlighter .CodeMirror {
-    background: none repeat scroll 0 0 #EEEEEE;
-}
-
-.flexslider ol,.flexslider ul{
-	list-style: none outside none;
-	padding-left: 0;
 }
