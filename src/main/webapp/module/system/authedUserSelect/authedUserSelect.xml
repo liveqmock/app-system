@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="subpage" needsLogin="true" label="授权用户选择" onLoad="onsqPageLoaded" name="authedUserSelectWin" width="729px" height="430px">
+  <tree component="tree" label="树" name="authedUserSelectTree" showLine="true" width="220px" height="326px" onTreeRender="onTreeRendered" onNodeSelect="onNodeSelected" datasourceType="private" datasourceName="cmp_gnDataset_5" autoLoad="true" loadMode="local" autoRender="true" renderto="#sqyhxz_bm_container" renderType="replace" renderTemplate="{{buMenMC}}" levelType="section" levelField="buMenBH" levelSectionFormat="2-2-2">
+    <dataset component="stlDataset" label="数据集-gn(null-数据集-gn)" name="cmp_gnDataset_5" autoLoad="true" xiTongDH="hdzg" gongNengDH="bm" caoZuoDH="select" start="0" limit="0" shiTiLeiDH="SYS_BuMen">
+      <properties component="properties">
+        <property component="simpleProperty" name="buMenBH" label="部门编号" fieldType="string"/>
+        <property component="simpleProperty" name="buMenMC" label="部门名称" fieldType="string"/>
+      </properties>
+      <filters component="filters"/>
+      <sorts component="sorts">
+        <sort component="propertySort" label="部门编号" property="buMenBH" dir="ASC"/>
+      </sorts>
+    </dataset>
+  </tree>
+  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_5" label="表格显示" name="authedUserSelectGrid" autoLoad="true" autoRender="true" headerLines="1" footerLines="0" renderto="#sqyhxz_yh_container" pagiTarget="#sqyhxz_yh_page">
+    <dataset component="stlDataset" label="用户数据集" name="authedUserSelectDatasource" autoLoad="true" xiTongDH="hdzg" gongNengDH="yh" caoZuoDH="select" start="0" limit="10" shiTiLeiDH="SYS_YongHu">
+      <properties component="properties">
+        <property component="complexProperty" name="renZiRY" label="关联人资人员" fieldType="object">
+          <properties component="properties">
+            <property component="complexProperty" name="zhiWu" label="职务" fieldType="object">
+              <properties component="properties">
+                <property component="simpleProperty" name="zhiWuMC" label="名称" fieldType="string"/>
+              </properties>
+            </property>
+            <property component="complexProperty" name="jianLi" label="个人简历" fieldType="object">
+              <properties component="properties">
+                <property component="simpleProperty" name="yuanGongH" label="员工号" fieldType="string"/>
+                <property component="complexProperty" name="xingBie" label="性别" fieldType="object">
+                  <properties component="properties">
+                    <property component="simpleProperty" name="xingBieMC" label="性别名称" fieldType="string"/>
+                  </properties>
+                </property>
+                <property component="simpleProperty" name="zuoJiH" label="座机" fieldType="string"/>
+              </properties>
+            </property>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="yongHuMC" label="用户名称" fieldType="string"/>
+        <property component="simpleProperty" name="yongHuDM" label="用户代码" fieldType="int"/>
+        <property component="complexProperty" name="suoShuBM" label="所属部门" fieldType="object">
+          <properties component="properties">
+            <property component="simpleProperty" name="buMenMC" label="部门名称" fieldType="string"/>
+          </properties>
+        </property>
+      </properties>
+      <filters component="filters">
+        <filter component="propertyFilter" label="正常用户状态" type="object" property="yongHuZT" operator="eq" value="2"/>
+        <filter component="propertyFilter" label="不显示系统用户" type="int" property="yongHuDM" operator="gt" value="10"/>
+        <filter component="sqlFilter" label="sql条件" sql="yongHuDM in (select yhjs.yongHuDM from sys_yonghujs yhjs,sys_jueseqxgncz jsgncz,sys_gongnengcz gncz,sys_gongneng gn where yhjs.juesedm = jsgncz.juesedm and gncz.gongnengczdm = jsgncz.gongnengczdm and gn.gongnengdm = gncz.gongnengdm and gn.gongnengdh = '${params.gongNengDH}' and gncz.caozuodh = '${params.caoZuoDH}')"/>
+      </filters>
+      <sorts component="sorts"/>
+    </dataset>
+    <columns component="gridColumns">
+      <column component="gridColumn" name="@index" label="行号" fieldType="int" renderto="#xuHao" renderTemplate="{{@index}}"/>
+      <column component="gridColumn" name="renZiRY" label="员工号" fieldType="object" renderto="#gongHao" renderTemplate="{{renZiRY.jianLi.yuanGongH}}"/>
+      <column fieldType="string" component="gridColumn" label="用户名称" name="yongHuMC" renderto="#Name" renderTemplate="{{yongHuMC}}" showTips="true"/>
+      <column component="gridColumn" name="renZiRY" label="性别名称" fieldType="object" renderto="#Sex" renderTemplate="{{renZiRY.jianLi.xingBie.xingBieMC}}"/>
+      <column component="gridColumn" name="suoShuBM" label="部门名称" fieldType="object" renderto="#Dep" renderTemplate="{{suoShuBM.buMenMC}}"/>
+      <column component="gridColumn" name="renZiRY" label="名称" fieldType="object" renderto="#zhiWu" renderTemplate="{{renZiRY.zhiWu.zhiWuMC}}"/>
+      <column fieldType="object" component="gridColumn" label="座机" name="renZiRY" renderto="#Tel" renderTemplate="{{renZiRY.jianLi.zuoJiH}}" showTips="true"/>
+    </columns>
+  </grid>
+</page>

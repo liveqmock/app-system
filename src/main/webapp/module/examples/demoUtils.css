@@ -1,0 +1,8 @@
+
+.CodeMirror {
+    border-radius: 5px;
+    background: none repeat scroll 0 0 #EEEEEE;
+    position: relative !important;
+    box-sizing: border-box;
+    height:auto !important;
+}
