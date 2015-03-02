@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="实体类编辑">
+  <form component="singleEditForm" label="实体类编辑表单" name="shiTiLeiEditForm" datasourceType="private" autoLoad="true" renderto="#shiTiLeiForm" renderType="rela" autoRender="true" xiTongDH="system" gongNengDH="stl" caoZuoDH="edit">
+    <record component="stlRecord" label="实体类数据记录" name="shiTiLeiRecord" autoLoad="true" xiTongDH="system" 
+    		shiTiLeiDH="SYS_ShiTiLei" id="${params.id}" onSubmit="onShiTiLeiSubmit">
+      <properties component="properties">
+        <property component="complexProperty" name="zds" label="字段集合" fieldType="set">
+          <properties component="properties">
+            <property component="simpleProperty" name="guanLianFLZD" label="关联父类字段名称" fieldType="string"/>
+            <property component="simpleProperty" name="ziDuanDH" label="字段代号" fieldType="string"/>
+            <property component="simpleProperty" name="lieMing" label="数据库列名" fieldType="string"/>
+            <property component="simpleProperty" name="ziDuanBT" label="字段标题" fieldType="string"/>
+            <property component="simpleProperty" name="ziDuanCD" label="字段长度" fieldType="int"/>
+            <property component="simpleProperty" name="ziDuanJD" label="字段精度" fieldType="int"/>
+            <property component="simpleProperty" name="yunXuKZ" label="允许空值" fieldType="boolean"/>
+            <property component="complexProperty" name="ziDuanLX" label="字段类型" fieldType="object">
+              <properties component="properties">
+                <property component="simpleProperty" name="ziDuanLXMC" label="字段类型名称" fieldType="string"/>
+              </properties>
+            </property>
+            <property component="complexProperty" name="guanLianSTL" label="关联实体类" fieldType="object">
+              <properties component="properties">
+                <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+              </properties>
+            </property>
+          </properties>
+        </property>
+        <property component="complexProperty" name="xiTong" label="系统" fieldType="object">
+          <properties component="properties">
+            <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="biaoMing" label="数据库表名" fieldType="string"/>
+        <property component="simpleProperty" name="shiTiLeiClassName" label="JAVA类名" fieldType="string"/>
+        <property component="simpleProperty" name="xianShiLie" label="显示列" fieldType="string"/>
+        <property component="simpleProperty" name="zhuJianLie" label="主键列" fieldType="string"/>
+        <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+        <property component="simpleProperty" name="shiTiLeiDH" label="实体类代号" fieldType="string"/>
+        <property component="simpleProperty" name="paiXuLie" label="排序列" fieldType="string"/>
+        <property component="simpleProperty" name="shiFouSJKB" label="是否数据库表" fieldType="boolean"/>
+        <property component="simpleProperty" name="shiFouYWB" label="是否业务表" fieldType="boolean"/>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field fieldType="string" component="stringEditor" name="shiTiLeiDH" label="实体类代号" renderType="insert" width="287px" height="29px" renderto="#shiTiLeiDH" renderTemplate="{{shiTiLeiDH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="shiTiLeiMC" label="实体类名称" renderType="insert" width="287px" height="22px" renderto="#shiTiLeiMC" renderTemplate="{{shiTiLeiMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="biaoMing" label="数据库表名" renderType="insert" width="287px" height="22px" renderto="#biaoMing" renderTemplate="{{biaoMing}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="zhuJianLie" label="主键列" renderType="insert" width="287px" height="22px" renderto="#zhuJianLie" renderTemplate="{{zhuJianLie}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="xianShiLie" label="显示列" renderType="insert" width="287px" height="22px" renderto="#xianShiLie" renderTemplate="{{xianShiLie}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="paiXuLie" label="排序列" renderType="insert" width="287px" height="22px" renderto="#paiXuLie" renderTemplate="{{paiXuLie}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="287px" height="150px">
+        <dataset component="stlDataset" label="功能数据集(系统-功能数据集)" name="cmp_gnDataset_39" autoLoad="true" start="0" limit="0" shiTiLeiDH="SYS_XiTong" xiTongDH="system">
+          <properties component="properties">
+            <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongDM" label="系统代码" fieldType="int"/>
+          </properties>
+          <filters component="filters"/>
+          <sorts component="sorts"/>
+        </dataset>
+      </field>
+      <field fieldType="boolean" component="booleanCheckEditor" name="shiFouSJKB" label="是否数据库表" renderType="insert" width="287px" height="22px" renderto="#shiFouSJKB" renderTemplate="{{shiFouSJKB}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="boolean" component="booleanCheckEditor" name="shiFouYWB" label="是否业务表" renderType="insert" width="287px" height="22px" renderto="#shiFouYWB" renderTemplate="{{shiFouYWB}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="shiTiLeiClassName" label="JAVA类名" renderType="insert" width="591px" height="29px" renderto="#javaClassName" renderTemplate="{{shiTiLeiClassName}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
+      <field fieldType="set" component="setGridEditor" name="zds" label="字段集合" width="120px" height="22px" enabled="true" allowBlank="false" renderType="rela">
+        <buttons component="tools"/>
+        <grid component="subGrid" label="子表格(字段集合-子表格)" name="cmp_subGrid_48" renderto="#zslist" headerLines="1" footerLines="0">
+          <columns component="gridColumns">
+            <column component="intDisplayColumn" textAlign="right" zeroAsBlank="true" name="@index" label="行号" fieldType="int" renderto="#xuHao" renderTemplate="{{@index}}"/>
+            <column fieldType="string" component="stringColumn" label="字段代号" name="ziDuanDH" enabled="true" allowBlank="false" renderto="#ziDuanDH" renderTemplate="{{ziDuanDH}}" renderType="insert" width="120px" height="150px"/>
+            <column fieldType="string" component="stringColumn" label="字段标题" name="ziDuanBT" enabled="true" allowBlank="false" renderto="#ziDuanBT" renderTemplate="{{ziDuanBT}}" renderType="insert" width="120px" height="150px"/>
+            <column fieldType="string" component="stringColumn" label="数据库列名" name="lieMing" enabled="true" allowBlank="false" renderto="#lieMing" renderTemplate="{{lieMing}}" renderType="insert" width="120px" height="150px"/>
+            <column fieldType="boolean" component="booleanCheckColumn" label="允许空值" name="yunXuKZ" renderto="#yunXuKZ" renderTemplate="{{yunXuKZ}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
+            <column fieldType="object" component="objectSelectColumn" label="字段类型" name="ziDuanLX" enabled="true" allowBlank="false" renderto="#ziDuanLX" renderTemplate="{{ziDuanLX.ziDuanLXMC}}" renderType="insert" datasourceType="private" searchMode="local" minLength="0" width="60px" height="150px">
+              <dataset component="stlDataset" label="数据源" name="dataset" autoLoad="true" start="0" limit="0" caoZuoDH="describe" gongNengDH="gn" xiTongDH="system" shiTiLeiDH="SYS_ZiDuanLX">
+                <properties component="properties">
+                  <property component="simpleProperty" name="ziDuanLXDH" label="字段类型代号" fieldType="string"/>
+                  <property component="simpleProperty" name="ziDuanLXMC" label="字段类型名称" fieldType="string"/>
+                </properties>
+                <filters component="filters"/>
+                <sorts component="sorts"/>
+              </dataset>
+            </column>
+            <column fieldType="int" component="intColumn" label="字段长度" name="ziDuanCD" enabled="true" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{ziDuanCD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
+            <column fieldType="int" component="intColumn" label="字段精度" name="ziDuanJD" enabled="true" allowBlank="true" renderto="#ziDuanJD" renderTemplate="{{ziDuanJD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
+            <column fieldType="object" component="objectSelectColumn" label="关联实体类" name="guanLianSTL" enabled="true" allowBlank="true" renderto="#guanLianSTL" renderTemplate="{{guanLianSTL.shiTiLeiMC}}" renderType="insert" datasourceType="private" searchMode="local" minLength="0" width="100px" height="150px">
+              <dataset component="stlDataset" label="实体类选择" name="stlSelectDataset" autoLoad="true" start="0" limit="0" shiTiLeiDH="SYS_ShiTiLei" xiTongDH="system">
+                <properties component="properties">
+                  <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+                </properties>
+                <filters component="filters"/>
+                <sorts component="sorts"/>
+              </dataset>
+            </column>
+            <column fieldType="string" component="stringColumn" label="关联父类字段名称" name="guanLianFLZD" enabled="true" allowBlank="true" renderto="#guanLianFLZD" renderTemplate="{{guanLianFLZD}}" renderType="insert" width="80px"/>
+          </columns>
+        </grid>
+      </field>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>
+    </buttons>
+  </form>
+</page>
