@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <page component="page" needsLogin="true" label="实体类-列表" onLoad="onPageRady">
-  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_zsgf" label="正式供方显示" name="cmp_displayGrid_zsgf" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#zslist" pagiTarget="#zsListpage">
-    <dataset component="gnDataset" label="实体类" name="stlDataset" autoLoad="true" xiTongDH="system" gongNengDH="stl" caoZuoDH="select" start="0" limit="20">
+  <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_zsgf" label="正式供方显示" name="shiTiLeiGrid" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#zslist" pagiTarget="#zsListpage">
+    <dataset component="gnDataset" label="实体类" name="stlDataset" autoLoad="true" xiTongDH="system" gongNengDH="stl" caoZuoDH="select" start="0" limit="0">
       <properties component="properties">
         <property component="simpleProperty" name="biaoMing" label="数据库表名" fieldType="string"/>
         <property component="simpleProperty" name="shiTiLeiClassName" label="JAVA类名" fieldType="string"/>

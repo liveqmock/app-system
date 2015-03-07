@@ -92,3 +92,20 @@
 .h_page{ height:24px; line-height:24px; font-size:12px; text-align:center; padding:5px;}
 .h_page a{ color:#666; padding:0 10px; text-decoration:none;}
 .h_page a:hover,.h_page a.on{ color:#f60;}
+
+.btn_icon {
+    background: none repeat scroll 0 0 #6F91BB;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 10px;
+    text-align: center;
+    width: 120px;
+}
+.btn_icon:hover {
+    background: none repeat scroll 0 0 #335588;
+}
