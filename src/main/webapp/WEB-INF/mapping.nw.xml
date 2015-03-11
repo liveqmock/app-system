@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<session-mappings> 
+  <mapping resource="com/poweruniverse/app/hbm/nw/dm/XinWenLB.hbm.xml"/>  
+  <mapping resource="com/poweruniverse/app/hbm/nw/dm/XinWen.hbm.xml"/>
+</session-mappings>

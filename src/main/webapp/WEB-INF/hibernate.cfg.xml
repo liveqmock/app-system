@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- jdbc:oracle:thin:@172.16.3.4:1521:orcl -->
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.username">nim</property>
+		<property name="hibernate.connection.password">nim</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.use_outer_join">false</property>
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="dialect">org.hibernate.dialect.Oracle9iDialect</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="javax.persistence.validation.mode">none</property>
+		<property name="hibernate.c3p0.min_size">10</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">30</property>
+		<property name="hibernate.c3p0.preferredTestQuery">select 1 from dual</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+
+	</session-factory>
+</hibernate-configuration>

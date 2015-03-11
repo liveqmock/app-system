@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="功能编辑" onLoad="onPageRady">
+  <form component="singleEditForm" label="实体类编辑表单" name="gongNengEditForm" 
+  	  datasourceType="private" autoLoad="true" renderto="#gongNengForm" renderType="rela" 
+  	  autoRender="true" xiTongDH="system" gongNengDH="gn" caoZuoDH="append">
+    <record component="gnRecord" label="功能数据记录" name="gongNengRecord" autoLoad="true" xiTongDH="system" gongNengDH="gn" caoZuoDH="append" >
+      <properties component="properties">
+        <property component="complexProperty" fieldType="object" label="系统" name="xiTong">
+          <properties component="properties">
+            <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="gongNengDH" label="功能代号" fieldType="string"/>
+        <property component="simpleProperty" name="gongNengMC" label="功能名称" fieldType="string"/>
+        <property component="simpleProperty" name="gongNengClass" label="功能实现类" fieldType="string"/>
+        <property component="simpleProperty" name="shiFouLCGN" label="是否流程功能" fieldType="boolean"/>
+        <property component="complexProperty" name="czs" label="操作集合" fieldType="set">
+          <properties component="properties">
+            <property component="simpleProperty" name="caoZuoDH" label="操作代号" fieldType="string"/>
+            <property component="simpleProperty" name="caoZuoMC" label="操作名称" fieldType="string"/>
+            <property component="simpleProperty" name="duiXiangXG" label="对象相关" fieldType="boolean"/>
+            <property component="simpleProperty" name="keYiSQ" label="可以授权" fieldType="boolean"/>
+            <property component="complexProperty" name="caoZuoLB" label="操作类别" fieldType="object">
+              <properties component="properties">
+                <property component="simpleProperty" name="caoZuoLBMC" label="操作类别名称" fieldType="string"/>
+              </properties>
+            </property>
+          </properties>
+        </property>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="local" minLength="0" width="287px" height="150px">
+        <dataset component="stlDataset" label="系统数据集" name="xiTongDataset" autoLoad="true" xiTongDH="system" start="0" limit="0" shiTiLeiDH="SYS_XiTong">
+          <properties component="properties">
+            <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
+            <property component="simpleProperty" name="xiTongDM" label="系统代码" fieldType="int"/>
+          </properties>
+          <filters component="filters"/>
+          <sorts component="sorts"/>
+        </dataset>
+      </field>
+      <field fieldType="string" component="stringEditor" name="gongNengDH" label="功能代号" renderType="insert" width="120px" height="22px" renderto="#gongNengDH" renderTemplate="{{gongNengDH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="gongNengMC" label="功能名称" renderType="insert" width="120px" height="22px" renderto="#gongNengMC" renderTemplate="{{gongNengMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="gongNengClass" label="功能实现类" renderType="insert" width="572px" height="29px" renderto="#javaClassName" renderTemplate="{{gongNengClass}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="boolean" component="booleanCheckEditor" name="shiFouLCGN" label="是否流程功能" renderType="insert" width="120px" height="22px" renderto="#shiFouYWB" renderTemplate="{{shiFouLCGN}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="set" component="setGridEditor" name="czs" label="操作集合" width="120px" height="22px" enabled="true" allowBlank="false" renderType="rela">
+        <buttons component="tools"/>
+        <grid component="subGrid" label="子表格(操作集合-子表格)" name="cmp_subGrid_32" renderto="#zslist" headerLines="1" footerLines="0" onRowRendered="onGridRowRender">
+          <columns component="gridColumns">
+            <column component="intDisplayColumn" textAlign="right" zeroAsBlank="true" name="@index" label="行号" fieldType="int" renderto="#xuHao" renderTemplate="{{@index}}"/>
+            <column fieldType="string" component="stringColumn" label="操作代号" name="caoZuoDH" renderto="#ziDuanDH" renderTemplate="{{caoZuoDH}}" enabled="true" allowBlank="false" renderType="insert" width="120px"/>
+            <column fieldType="string" component="stringColumn" label="操作名称" name="caoZuoMC" renderto="#ziDuanBT" renderTemplate="{{caoZuoMC}}" enabled="true" allowBlank="false" renderType="insert" width="120px"/>
+            <column fieldType="boolean" component="booleanCheckColumn" label="对象相关" name="duiXiangXG" renderto="#yunXuKZ" renderTemplate="{{duiXiangXG}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
+            <column fieldType="boolean" component="booleanCheckColumn" label="可以授权" name="keYiSQ" renderto="#ziDuanLX" renderTemplate="{{keYiSQ}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
+            <column fieldType="object" component="objectSelectColumn" label="操作类别" name="caoZuoLB" enabled="true" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{caoZuoLB.caoZuoLBMC}}" renderType="insert" datasourceType="private" searchMode="local" minLength="0" width="120px" height="150px">
+              <dataset component="stlDataset" label="数据源" name="dataset" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_CaoZuoLB" start="0" limit="0">
+                <properties component="properties">
+                  <property component="simpleProperty" name="caoZuoLBMC" label="操作类别名称" fieldType="string"/>
+                  <property component="simpleProperty" name="caoZuoLBDM" label="操作类别代码" fieldType="int"/>
+                </properties>
+                <filters component="filters"/>
+                <sorts component="sorts"/>
+              </dataset>
+            </column>
+          </columns>
+        </grid>
+      </field>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>
+    </buttons>
+  </form>
+</page>

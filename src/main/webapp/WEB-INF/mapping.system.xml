@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session-mappings>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/XiTong.hbm.xml"/>
+	
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNeng.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengLB.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengCZ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/CaoZuoLB.hbm.xml"/>
+	
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/ShiTiLei.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/ShiTiLeiLX.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/ZiDuan.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/ZiDuanLX.hbm.xml"/>
+	
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/BuMen.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/JueSe.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/JueSeQXGNCZ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/JueSeQXGNCZMX.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/JueSeQXGNCZMXGS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/YongHu.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/YongHuJS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/YongHuZT.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/CaoZuoMBTJMX.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/CaoZuoMBTJGS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/ZhiWu.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/CaoZuoMB.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengCZBL.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengGZL.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengGZLTJ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengGZLTJGS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengLC.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengLCGS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/GongNengLCMX.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengJS.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengJSBL.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengJSPJ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengJSSJ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengJSXJ.hbm.xml"/>
+	<mapping resource="com/poweruniverse/nim/data/hbm/system/LiuChengLJ.hbm.xml"/>
+</session-mappings>
