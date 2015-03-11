@@ -40,9 +40,9 @@
 			classesPath="D:/data/workspace/nim-data/target/classes/" 
 			entityPackage="com.poweruniverse.nim.data" />
 			
-		<xiTong name="nim" 
+		<xiTong name="nw"
 			srcPath="{contextPath}src/main/java/" 
 			classesPath="{contextPath}target/classes/" 
-			entityPackage="com.poweruniverse.app.data" />
+			entityPackage="com.poweruniverse.app" />
 	</sessionFactory>
 </application>
