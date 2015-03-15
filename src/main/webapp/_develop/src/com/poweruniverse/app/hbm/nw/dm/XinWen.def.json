@@ -1,0 +1,73 @@
+{
+	"shiTiLeiDM" : 64,
+	"shiTiLeiBB" : "2015-03-16 01:22:49",
+	"shiTiLeiMC" : "新闻",
+	"shiTiLeiDH" : "NW_DM_XinWen",
+	"zhuJianLie" : "xinWenDM",
+	"xianShiLie" : "xinWenBT",
+	"paiXuLie" : "xinWenXH",
+	"biaoMing" : "NW_DM_XinWen",
+	"shiTiLeiClassName" : "com.poweruniverse.app.entity.nw.dm.XinWen",
+	"shiFouYWB" : false,
+	"xiTong" : {
+		"xiTongDM" : 12,
+		"xiTongDH" : "nw"
+	},
+	"zds" : [{
+				"ziDuanDM" : 16963,
+				"ziDuanBT" : "新闻代码",
+				"lieMing" : "xinWenDM",
+				"ziDuanDH" : "xinWenDM",
+				"ziDuanCD" : 12,
+				"ziDuanJD" : 0,
+				"yunXuKZ" : false,
+				"yanChiJZ" : false,
+				"shiFouWY" : false,
+				"ziDuanLX" : {
+					"ziDuanLXDM" : 2,
+					"ziDuanLXDH" : "int"
+				}
+			}, {
+				"ziDuanDM" : 16964,
+				"ziDuanBT" : "新闻标题",
+				"lieMing" : "xinWenBT",
+				"ziDuanDH" : "xinWenBT",
+				"ziDuanCD" : 200,
+				"ziDuanJD" : 0,
+				"yunXuKZ" : false,
+				"yanChiJZ" : false,
+				"shiFouWY" : false,
+				"ziDuanLX" : {
+					"ziDuanLXDM" : 1,
+					"ziDuanLXDH" : "string"
+				}
+			}, {
+				"ziDuanDM" : 16965,
+				"ziDuanBT" : "新闻序号",
+				"lieMing" : "xinWenXH",
+				"ziDuanDH" : "xinWenXH",
+				"ziDuanCD" : 12,
+				"ziDuanJD" : 0,
+				"yunXuKZ" : false,
+				"yanChiJZ" : false,
+				"shiFouWY" : false,
+				"ziDuanLX" : {
+					"ziDuanLXDM" : 2,
+					"ziDuanLXDH" : "int"
+				}
+			}, {
+				"ziDuanDM" : 16966,
+				"ziDuanBT" : "新闻内容",
+				"lieMing" : "xinWenNR",
+				"ziDuanDH" : "xinWenNR",
+				"ziDuanCD" : 1900,
+				"ziDuanJD" : 0,
+				"yunXuKZ" : false,
+				"yanChiJZ" : false,
+				"shiFouWY" : false,
+				"ziDuanLX" : {
+					"ziDuanLXDM" : 7,
+					"ziDuanLXDH" : "text"
+				}
+			}]
+}
