@@ -1,8 +1,9 @@
 package com.poweruniverse.app.entity.nw.dm.base;
 import java.io.Serializable;
 import java.util.List;
+
 import com.poweruniverse.nim.data.entity.Version;
-import com.poweruniverse.nim.data.entity.system.base.EntityI;
+import com.poweruniverse.nim.data.entity.sys.base.EntityI;
 /*
 * 实体类：新闻类别
 */

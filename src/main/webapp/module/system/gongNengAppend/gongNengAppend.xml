@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <page component="page" needsLogin="true" label="功能编辑" onLoad="onPageRady">
-  <form component="singleEditForm" label="实体类编辑表单" name="gongNengEditForm" 
-  	  datasourceType="private" autoLoad="true" renderto="#gongNengForm" renderType="rela" 
-  	  autoRender="true" xiTongDH="system" gongNengDH="gn" caoZuoDH="append">
-    <record component="gnRecord" label="功能数据记录" name="gongNengRecord" autoLoad="true" xiTongDH="system" gongNengDH="gn" caoZuoDH="append" >
+  <form component="singleEditForm" label="实体类编辑表单" name="gongNengEditForm" datasourceType="private" autoLoad="true" renderto="#gongNengForm" renderType="rela" autoRender="true" xiTongDH="sys" gongNengDH="gn" caoZuoDH="append">
+    <record component="gnRecord" label="功能数据记录" name="gongNengRecord" autoLoad="true" xiTongDH="sys" gongNengDH="gn" caoZuoDH="append">
       <properties component="properties">
         <property component="complexProperty" fieldType="object" label="系统" name="xiTong">
           <properties component="properties">
@@ -29,11 +27,18 @@
             </property>
           </properties>
         </property>
+        <property component="complexProperty" fieldType="object" label="实体类" name="shiTiLei">
+          <properties component="properties">
+            <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+            <property component="simpleProperty" name="shiTiLeiDH" label="实体类代号" fieldType="string"/>
+            <property component="simpleProperty" name="shiTiLeiDM" label="实体类代码" fieldType="int"/>
+          </properties>
+        </property>
       </properties>
     </record>
     <fields component="formFields">
       <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="local" minLength="0" width="287px" height="150px">
-        <dataset component="stlDataset" label="系统数据集" name="xiTongDataset" autoLoad="true" xiTongDH="system" start="0" limit="0" shiTiLeiDH="SYS_XiTong">
+        <dataset component="stlDataset" label="系统数据集" name="xiTongDataset" autoLoad="true" xiTongDH="sys" start="0" limit="0" shiTiLeiDH="SYS_XiTong">
           <properties component="properties">
             <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
             <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
@@ -45,7 +50,7 @@
       </field>
       <field fieldType="string" component="stringEditor" name="gongNengDH" label="功能代号" renderType="insert" width="120px" height="22px" renderto="#gongNengDH" renderTemplate="{{gongNengDH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
       <field fieldType="string" component="stringEditor" name="gongNengMC" label="功能名称" renderType="insert" width="120px" height="22px" renderto="#gongNengMC" renderTemplate="{{gongNengMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
-      <field fieldType="string" component="stringEditor" name="gongNengClass" label="功能实现类" renderType="insert" width="572px" height="29px" renderto="#javaClassName" renderTemplate="{{gongNengClass}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="gongNengClass" label="功能实现类" renderType="insert" width="572px" height="29px" renderto="#javaClassName" renderTemplate="{{gongNengClass}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
       <field fieldType="boolean" component="booleanCheckEditor" name="shiFouLCGN" label="是否流程功能" renderType="insert" width="120px" height="22px" renderto="#shiFouYWB" renderTemplate="{{shiFouLCGN}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
       <field fieldType="set" component="setGridEditor" name="czs" label="操作集合" width="120px" height="22px" enabled="true" allowBlank="false" renderType="rela">
         <buttons component="tools"/>
@@ -57,7 +62,7 @@
             <column fieldType="boolean" component="booleanCheckColumn" label="对象相关" name="duiXiangXG" renderto="#yunXuKZ" renderTemplate="{{duiXiangXG}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
             <column fieldType="boolean" component="booleanCheckColumn" label="可以授权" name="keYiSQ" renderto="#ziDuanLX" renderTemplate="{{keYiSQ}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
             <column fieldType="object" component="objectSelectColumn" label="操作类别" name="caoZuoLB" enabled="true" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{caoZuoLB.caoZuoLBMC}}" renderType="insert" datasourceType="private" searchMode="local" minLength="0" width="120px" height="150px">
-              <dataset component="stlDataset" label="数据源" name="dataset" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_CaoZuoLB" start="0" limit="0">
+              <dataset component="stlDataset" label="数据源" name="dataset" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_CaoZuoLB" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="caoZuoLBMC" label="操作类别名称" fieldType="string"/>
                   <property component="simpleProperty" name="caoZuoLBDM" label="操作类别代码" fieldType="int"/>
@@ -68,6 +73,17 @@
             </column>
           </columns>
         </grid>
+      </field>
+      <field fieldType="object" component="objectSelectEditor" name="shiTiLei" label="实体类" renderType="insert" renderto="#shiTiLei" renderTemplate="{{shiTiLei.shiTiLeiMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="285px" height="150px">
+        <dataset component="stlDataset" label="功能数据集(实体类-功能数据集)" name="cmp_gnDataset_56" autoLoad="true" start="0" limit="0" xiTongDH="sys" shiTiLeiDH="SYS_ShiTiLei">
+          <properties component="properties">
+            <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+            <property component="simpleProperty" name="shiTiLeiDH" label="实体类代号" fieldType="string"/>
+            <property component="simpleProperty" name="shiTiLeiDM" label="实体类代码" fieldType="int"/>
+          </properties>
+          <filters component="filters"/>
+          <sorts component="sorts"/>
+        </dataset>
       </field>
     </fields>
     <buttons component="buttons">

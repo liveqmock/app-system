@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- version:2015-03-09 07:16:50 -->
+<!-- version:2015-03-16 01:22:49 -->
 <hibernate-mapping auto-import="false">  
     <class name="com.poweruniverse.app.entity.nw.dm.XinWen" table="NW_DM_XinWen" >
     	<!--主键-->

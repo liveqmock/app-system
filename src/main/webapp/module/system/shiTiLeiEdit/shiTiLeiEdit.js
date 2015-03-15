@@ -112,6 +112,18 @@ function ziDuanLXChanged(field,ob,evt){
 	     	ziDuanJDField.disable();
 	     	guanLianSTLField.disable();
 	     	guanLianFLZDField.disable();
+	    }else if(newVal.ziDuanLXDH == 'boolean'){//逻辑
+	      	if(ziDuanCDField.getValue()==null){
+	      		ziDuanCDField.setValue(newVal.ziDuanKD);
+	      	}
+			guanLianSTLField.setValue(null);
+	      	guanLianFLZDField.setValue(null);
+	
+	      	lieMingField.enable();
+	     	ziDuanCDField.enable();
+	     	ziDuanJDField.disable();
+	     	guanLianSTLField.disable();
+	     	guanLianFLZDField.disable();
 	    }else if(newVal.ziDuanLXDH == 'double'){//小数
 	      	if(ziDuanCDField.getValue()==null){
 	      		ziDuanCDField.setValue(newVal.ziDuanKD);

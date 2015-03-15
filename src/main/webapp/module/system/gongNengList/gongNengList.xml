@@ -2,7 +2,7 @@
 
 <page component="page" needsLogin="true" label="功能-列表" onLoad="onPageRady">
   <grid component="displayGrid" datasourceType="private" datasourceName="cmp_gnDataset_zsgf" label="功能列表" name="cmp_displayGrid_zsgf" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#zslist" pagiTarget="#zsListpage">
-    <dataset component="gnDataset" label="实体类" name="stlDataset" autoLoad="true" xiTongDH="system" gongNengDH="gn" caoZuoDH="select" start="0" limit="20">
+    <dataset component="gnDataset" label="实体类" name="stlDataset" autoLoad="true" xiTongDH="sys" gongNengDH="gn" caoZuoDH="select" start="0" limit="20">
       <properties component="properties">
         <property component="complexProperty" fieldType="object" label="系统" name="xiTong">
           <properties component="properties">

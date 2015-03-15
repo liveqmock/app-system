@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <page component="page" needsLogin="true" label="实体类编辑" onLoad="onPageRady">
-  <form component="singleEditForm" label="实体类编辑表单" name="shiTiLeiEditForm" datasourceType="private" autoLoad="true" renderto="#shiTiLeiForm" renderType="rela" autoRender="true" xiTongDH="system" gongNengDH="stl" caoZuoDH="edit" datasourceName="shiTiLeiRecord">
-    <record onSubmit="onShiTiLeiSubmit" component="stlRecord" label="实体类数据记录" name="shiTiLeiRecord" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_ShiTiLei" id="${params.id}">
+  <form component="singleEditForm" label="实体类编辑表单" name="shiTiLeiEditForm" datasourceType="private" autoLoad="true" renderto="#shiTiLeiForm" renderType="rela" autoRender="true" xiTongDH="sys" gongNengDH="stl" caoZuoDH="edit" datasourceName="shiTiLeiRecord">
+    <record onSubmit="onShiTiLeiSubmit" component="stlRecord" label="实体类数据记录" name="shiTiLeiRecord" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_ShiTiLei" id="${params.id}">
       <properties component="properties">
         <property component="complexProperty" name="zds" label="字段集合" fieldType="set">
           <properties component="properties">
@@ -59,7 +59,7 @@
       <field fieldType="string" component="stringEditor" name="xianShiLie" label="显示列" renderType="insert" width="287px" height="22px" renderto="#xianShiLie" renderTemplate="{{xianShiLie}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
       <field fieldType="string" component="stringEditor" name="paiXuLie" label="排序列" renderType="insert" width="287px" height="22px" renderto="#paiXuLie" renderTemplate="{{paiXuLie}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
       <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="287px" height="150px">
-        <dataset component="stlDataset" label="系统实体类数据集" name="xtDataset" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_XiTong" start="0" limit="0">
+        <dataset component="stlDataset" label="系统实体类数据集" name="xtDataset" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_XiTong" start="0" limit="0">
           <properties component="properties">
             <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
             <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
@@ -81,7 +81,7 @@
             <column fieldType="string" component="stringColumn" label="数据库列名" name="lieMing" enabled="true" allowBlank="false" renderto="#lieMing" renderTemplate="{{lieMing}}" renderType="insert" width="120px"/>
             <column fieldType="boolean" component="booleanCheckColumn" label="允许空值" name="yunXuKZ" renderto="#yunXuKZ" renderTemplate="{{yunXuKZ}}" showCheckbox="false" enabled="true" allowBlank="false" renderType="insert"/>
             <column fieldType="object" component="objectSelectColumn" label="字段类型" name="ziDuanLX" enabled="true" allowBlank="false" renderto="#ziDuanLX" renderTemplate="{{ziDuanLX.ziDuanLXMC}}" renderType="insert" datasourceType="private" searchMode="local" minLength="0" width="80px" height="150px" onChange="ziDuanLXChanged">
-              <dataset component="stlDataset" label="字段数据集1" name="zdSelectDataset1" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_ZiDuanLX" start="0" limit="0">
+              <dataset component="stlDataset" label="字段数据集1" name="zdSelectDataset1" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_ZiDuanLX" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="ziDuanLXDH" label="字段类型代号" fieldType="string"/>
                   <property component="simpleProperty" name="ziDuanLXMC" label="字段类型名称" fieldType="string"/>
@@ -95,7 +95,7 @@
             <column fieldType="int" component="intColumn" label="字段长度" name="ziDuanCD" enabled="false" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{ziDuanCD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
             <column fieldType="int" component="intColumn" label="字段精度" name="ziDuanJD" enabled="true" allowBlank="false" renderto="#ziDuanJD" renderTemplate="{{ziDuanJD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
             <column fieldType="object" component="objectSelectColumn" label="关联实体类" name="guanLianSTL" enabled="true" allowBlank="false" renderto="#guanLianSTL" renderTemplate="{{guanLianSTL.shiTiLeiMC}}" renderType="insert" datasourceType="private" datasourceName="xtDataset" searchMode="local" minLength="0" width="180px" height="150px">
-              <dataset component="stlDataset" label="实体类选择数据集" name="stlSelectDataset" autoLoad="true" xiTongDH="system" shiTiLeiDH="SYS_ShiTiLei" start="0" limit="0">
+              <dataset component="stlDataset" label="实体类选择数据集" name="stlSelectDataset" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_ShiTiLei" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
                 </properties>
@@ -104,7 +104,7 @@
               </dataset>
             </column>
             <column fieldType="object" component="objectSelectColumn" label="关联父类字段" name="guanLianFLZD" enabled="true" allowBlank="false" renderto="#guanLianFLZD" renderTemplate="{{guanLianFLZD.ziDuanBT}}" renderType="insert" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="remote" minLength="0" width="120px" height="150px" onLoad="beforeZiDuanOptionLoad">
-              <dataset component="stlDataset" label="字段选择数据集" name="zdSelectDataset" autoLoad="false" xiTongDH="system" shiTiLeiDH="SYS_ZiDuan" start="0" limit="0">
+              <dataset component="stlDataset" label="字段选择数据集" name="zdSelectDataset" autoLoad="false" xiTongDH="sys" shiTiLeiDH="SYS_ZiDuan" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="ziDuanDH" label="字段代号" fieldType="string"/>
                   <property component="simpleProperty" name="ziDuanBT" label="字段标题" fieldType="string"/>

@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<page component="page" label="示例-数据集-功能数据集-自动加载" needsLogin="true">
-  <dataset onLoad="onLoad" component="gnDataset" label="部门数据集" name="bmDataset" autoLoad="true" xiTongDH="system" gongNengDH="bm" caoZuoDH="list" start="0" limit="0">
-    <properties component="properties">
-      <property component="simpleProperty" name="buMenBH" label="部门编号" fieldType="string"/>
-      <property component="simpleProperty" name="buMenMC" label="部门名称" fieldType="string"/>
-    </properties>
-    <filters component="filters"/>
-    <sorts component="sorts"/>
-  </dataset>
+<page component="page" needsLogin="true" label="新闻-新增">
+  <form component="singleEditForm" label="单表编辑表单" name="cmp_singleEditForm_4" datasourceType="private" autoLoad="true" renderto="#xinWenFormContainer" renderType="rela" autoRender="true" xiTongDH="nw" gongNengDH="xw" caoZuoDH="append">
+    <record component="gnRecord" label="新闻数据对象" name="xwRecord" autoLoad="true" xiTongDH="nw" gongNengDH="xw" caoZuoDH="append">
+      <properties component="properties">
+        <property component="simpleProperty" name="xinWenXH" label="新闻序号" fieldType="int"/>
+        <property component="simpleProperty" name="xinWenBT" label="新闻标题" fieldType="string"/>
+        <property component="simpleProperty" name="xinWenNR" label="新闻内容" fieldType="text"/>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field fieldType="int" component="intEditor" name="xinWenXH" label="新闻序号" renderType="insert" width="120px" height="22px" renderto="#xh" renderTemplate="{{xinWenXH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" textAlign="right" zeroAsBlank="false"/>
+      <field fieldType="string" component="stringEditor" name="xinWenBT" label="新闻标题" renderType="insert" width="325px" height="29px" renderto="#bt" renderTemplate="{{xinWenBT}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="text" component="htmlEditor" name="xinWenNR" label="新闻内容" renderType="insert" width="351px" height="191px" renderto="#nr" renderTemplate="{{xinWenNR}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" popWidth="500px" popHeight="450px"/>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="xwSubmitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>
+    </buttons>
+  </form>
 </page>

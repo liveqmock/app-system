@@ -2,11 +2,11 @@ package com.poweruniverse.app.entity.nw.dm.base;
 import java.io.Serializable;
 import java.util.List;
 import com.poweruniverse.nim.data.entity.Version;
-import com.poweruniverse.nim.data.entity.system.base.EntityI;
+import com.poweruniverse.nim.data.entity.sys.base.EntityI;
 /*
 * 实体类：新闻
 */
-@Version("2015-03-09 07:16:50")
+@Version("2015-03-16 01:22:49")
 public abstract class BaseXinWen  implements Serializable,Comparable<Object> ,EntityI {
 	private static final long serialVersionUID = 1L;
 	private int hashCode = Integer.MIN_VALUE;
