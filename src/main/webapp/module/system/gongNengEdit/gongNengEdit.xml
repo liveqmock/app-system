@@ -2,7 +2,7 @@
 
 <page component="page" needsLogin="true" label="功能编辑" onLoad="onPageRady">
   <form component="singleEditForm" label="实体类编辑表单" name="gongNengEditForm" datasourceType="private" autoLoad="true" renderto="#gongNengForm" renderType="rela" autoRender="true" xiTongDH="sys" gongNengDH="gn" caoZuoDH="edit">
-    <record component="stlRecord" label="功能数据记录" name="gongNengRecord" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_GongNeng" id="${params.id}">
+    <record component="gnRecord" label="功能数据记录" name="gongNengRecord" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_GongNeng" id="${params.id}" gongNengDH="gn" caoZuoDH="edit">
       <properties component="properties">
         <property component="complexProperty" fieldType="object" label="系统" name="xiTong">
           <properties component="properties">
@@ -12,7 +12,6 @@
         </property>
         <property component="simpleProperty" name="gongNengDH" label="功能代号" fieldType="string"/>
         <property component="simpleProperty" name="gongNengMC" label="功能名称" fieldType="string"/>
-        <property component="simpleProperty" name="gongNengClass" label="功能实现类" fieldType="string"/>
         <property component="simpleProperty" name="shiFouLCGN" label="是否流程功能" fieldType="boolean"/>
         <property component="complexProperty" name="czs" label="操作集合" fieldType="set">
           <properties component="properties">
@@ -25,6 +24,11 @@
                 <property component="simpleProperty" name="caoZuoLBMC" label="操作类别名称" fieldType="string"/>
               </properties>
             </property>
+            <property component="simpleProperty" name="beforeAction" label="数据保存之前事件" fieldType="string"/>
+            <property component="simpleProperty" name="afterAction" label="数据保存之后事件" fieldType="string"/>
+            <property component="simpleProperty" name="prepareAction" label="数据保存准备事件" fieldType="string"/>
+            <property component="simpleProperty" name="onAction" label="数据保存事件" fieldType="string"/>
+            <property component="simpleProperty" name="loadAction" label="数据加载事件" fieldType="string"/>
           </properties>
         </property>
         <property component="complexProperty" name="shiTiLei" label="实体类" fieldType="object">
@@ -32,6 +36,8 @@
             <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
           </properties>
         </property>
+        <property component="simpleProperty" name="processStartAction" label="数据启动事件" fieldType="string"/>
+        <property component="simpleProperty" name="processEndAction" label="数据结束事件" fieldType="string"/>
       </properties>
     </record>
     <fields component="formFields">
@@ -48,9 +54,8 @@
       </field>
       <field fieldType="string" component="stringEditor" name="gongNengDH" label="功能代号" renderType="insert" width="120px" height="22px" renderto="#gongNengDH" renderTemplate="{{gongNengDH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
       <field fieldType="string" component="stringEditor" name="gongNengMC" label="功能名称" renderType="insert" width="120px" height="22px" renderto="#gongNengMC" renderTemplate="{{gongNengMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
-      <field fieldType="string" component="stringEditor" name="gongNengClass" label="功能实现类" renderType="insert" width="572px" height="29px" renderto="#javaClassName" renderTemplate="{{gongNengClass}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
       <field fieldType="boolean" component="booleanCheckEditor" name="shiFouLCGN" label="是否流程功能" renderType="insert" width="120px" height="22px" renderto="#shiFouYWB" renderTemplate="{{shiFouLCGN}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
-      <field fieldType="set" component="setGridEditor" name="czs" label="操作集合" width="120px" height="22px" enabled="true" allowBlank="false" renderType="rela">
+      <field fieldType="set" component="setGridEditor" name="czs" label="操作集合" width="120px" height="22px" enabled="true" allowBlank="false">
         <buttons component="tools"/>
         <grid component="subGrid" label="子表格(操作集合-子表格)" name="cmp_subGrid_32" renderto="#zslist" headerLines="1" footerLines="0" onRowRendered="onGridRowRender">
           <columns component="gridColumns">
@@ -69,13 +74,17 @@
                 <sorts component="sorts"/>
               </dataset>
             </column>
+            <column fieldType="string" component="stringColumn" label="数据保存之前事件" name="beforeAction" enabled="true" allowBlank="true" renderto="#beforeAction" renderTemplate="{{beforeAction}}" renderType="insert" width="68px"/>
+            <column fieldType="string" component="stringColumn" label="数据保存之后事件" name="afterAction" enabled="true" allowBlank="true" renderto="#afterAction" renderTemplate="{{afterAction}}" renderType="insert" width="73px"/>
+            <column fieldType="string" component="stringColumn" label="数据保存准备事件" name="prepareAction" enabled="true" allowBlank="true" renderto="#prepareAction" renderTemplate="{{prepareAction}}" renderType="insert" width="68px"/>
+            <column fieldType="string" component="stringColumn" label="数据保存事件" name="onAction" enabled="true" allowBlank="true" renderto="#onAction" renderTemplate="{{onAction}}" renderType="insert" width="68px"/>
+            <column fieldType="string" component="stringColumn" label="数据加载事件" name="loadAction" renderto="#loadAction" renderTemplate="{{loadAction}}" enabled="true" allowBlank="true" renderType="insert" width="73px"/>
           </columns>
         </grid>
       </field>
-      <field component="objectSelectEditor" renderType="rela" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="120px" height="150px" name="shiTiLei" label="实体类" fieldType="object" renderto="#shiTiLei" renderTemplate="{{shiTiLei.shiTiLeiMC}}">
-        <dataset component="stlDataset" label="功能数据集(实体类-功能数据集)" name="cmp_gnDataset_56" autoLoad="true" start="0" limit="0" shiTiLeiDH="SYS_ShiTiLei" xiTongDH="sys">
+      <field fieldType="object" component="objectSelectEditor" name="shiTiLei" label="实体类" renderType="insert" renderto="#shiTiLei" renderTemplate="{{shiTiLei.shiTiLeiMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="120px" height="150px">
+        <dataset component="stlDataset" label="功能数据集(实体类-功能数据集)" name="cmp_gnDataset_56" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_ShiTiLei" start="0" limit="0">
           <properties component="properties">
-            <property component="simpleProperty" name="gongNengDH" label="功能代号" fieldType="string"/>
             <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
             <property component="simpleProperty" name="shiTiLeiDM" label="实体类代码" fieldType="int"/>
           </properties>
@@ -83,6 +92,8 @@
           <sorts component="sorts"/>
         </dataset>
       </field>
+      <field fieldType="string" component="stringEditor" name="processStartAction" label="数据启动事件" renderType="insert" width="287px" height="22px" renderto="#processStartAction" renderTemplate="{{processStartAction}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="processEndAction" label="数据结束事件" renderType="insert" width="287px" height="22px" renderto="#processEndAction" renderTemplate="{{processEndAction}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
     </fields>
     <buttons component="buttons">
       <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>

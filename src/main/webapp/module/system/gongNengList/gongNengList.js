@@ -9,16 +9,16 @@ function onPageRady(){
 	$("#GFZRPS_zhengShi #GFZRPS_searchbtn").click(function(){
 		//
 		var gongYSMCValue = $('#GFZRPS_zhengShi').find('#gongYSMC:eq(0)').val();
-		if(gongYSMCValue==null || gongYSMCValue.length==0 || gongYSMCValue == "供方名称或供货范围"){
+		if(gongYSMCValue==null || gongYSMCValue.length==0 || gongYSMCValue == "系统、功能(代号/名称)"){
 			LUI.Grid.getInstance('cmp_displayGrid_zsgf').datasource.load({
 				filters : []
 			});
 		}else{
 			LUI.Grid.getInstance('cmp_displayGrid_zsgf').datasource.load({
 				filters : [{
-					property : "gongYingSJBZL.danWei",
+					property : "xiTong.xiTongMC",
 					operator : 'like',
-                  	assist:"['gongHuoFW']",
+                  	assist:"['xiTong.xiTongMDH','gongNengDH','gongNengMC']",
 					value : gongYSMCValue
 				}]
 			});

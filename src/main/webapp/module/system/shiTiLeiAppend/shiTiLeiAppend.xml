@@ -41,14 +41,12 @@
           </properties>
         </property>
         <property component="simpleProperty" name="biaoMing" label="数据库表名" fieldType="string"/>
-        <property component="simpleProperty" name="shiTiLeiClassName" label="JAVA类名" fieldType="string"/>
-        <property component="simpleProperty" name="xianShiLie" label="显示列" fieldType="string"/>
+        <property component="simpleProperty" fieldType="string" label="显示列" name="xianShiLie"/>
         <property component="simpleProperty" name="zhuJianLie" label="主键列" fieldType="string"/>
         <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
         <property component="simpleProperty" name="shiTiLeiDH" label="实体类代号" fieldType="string"/>
         <property component="simpleProperty" name="paiXuLie" label="排序列" fieldType="string"/>
-        <property component="simpleProperty" name="shiFouYWB" label="是否业务表" fieldType="boolean"/>
-        <property component="simpleProperty" name="shiTiLeiBB" label="实体类版本" fieldType="string"/>
+        <property component="simpleProperty" fieldType="boolean" label="是否业务表" name="shiFouYWB"/>
       </properties>
     </record>
     <fields component="formFields">
@@ -70,8 +68,7 @@
         </dataset>
       </field>
       <field fieldType="boolean" component="booleanCheckEditor" name="shiFouYWB" label="是否业务表" renderType="insert" width="287px" height="22px" renderto="#shiFouYWB" renderTemplate="{{shiFouYWB}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
-      <field fieldType="string" component="stringEditor" name="shiTiLeiClassName" label="JAVA类名" renderType="insert" width="591px" height="29px" renderto="#javaClassName" renderTemplate="{{shiTiLeiClassName}}" enabled="true" allowEdit="true" allowBlank="true" hidden="false"/>
-      <field fieldType="set" component="setGridEditor" name="zds" label="字段集合" width="120px" height="22px" enabled="true" allowBlank="false" renderType="rela">
+      <field fieldType="set" component="setGridEditor" name="zds" label="字段集合" width="120px" height="22px" enabled="true" allowBlank="false">
         <buttons component="tools"/>
         <grid component="subGrid" label="子表格(字段集合-子表格)" name="cmp_subGrid_48" renderto="#zslist" headerLines="1" footerLines="0" onRowRendered="onGridRowRender">
           <columns component="gridColumns">
@@ -92,9 +89,9 @@
                 <sorts component="sorts"/>
               </dataset>
             </column>
-            <column fieldType="int" component="intColumn" label="字段长度" name="ziDuanCD" enabled="false" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{ziDuanCD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
+            <column fieldType="int" component="intColumn" label="字段长度" name="ziDuanCD" enabled="true" allowBlank="false" renderto="#ziDuanCD" renderTemplate="{{ziDuanCD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
             <column fieldType="int" component="intColumn" label="字段精度" name="ziDuanJD" enabled="true" allowBlank="false" renderto="#ziDuanJD" renderTemplate="{{ziDuanJD}}" renderType="insert" textAlign="right" zeroAsBlank="true" width="40px"/>
-            <column fieldType="object" component="objectSelectColumn" label="关联实体类" name="guanLianSTL" enabled="true" allowBlank="false" renderto="#guanLianSTL" renderTemplate="{{guanLianSTL.shiTiLeiMC}}" renderType="insert" datasourceType="private" datasourceName="xtDataset" searchMode="local" minLength="0" width="180px" height="150px">
+            <column fieldType="object" component="objectSelectColumn" label="关联实体类" name="guanLianSTL" enabled="true" allowBlank="false" renderto="#guanLianSTL" renderTemplate="{{guanLianSTL.shiTiLeiMC}}" renderType="insert" datasourceType="private" datasourceName="xtDataset" searchMode="local" minLength="0" width="180px" height="150px" onChange="onGuanLianSTLChanged">
               <dataset component="stlDataset" label="实体类选择数据集" name="stlSelectDataset" autoLoad="true" xiTongDH="sys" shiTiLeiDH="SYS_ShiTiLei" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
@@ -103,7 +100,7 @@
                 <sorts component="sorts"/>
               </dataset>
             </column>
-            <column fieldType="object" component="objectSelectColumn" label="关联父类字段" name="guanLianFLZD" enabled="true" allowBlank="false" renderto="#guanLianFLZD" renderTemplate="{{guanLianFLZD.ziDuanBT}}" renderType="insert" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="remote" minLength="0" width="120px" height="150px" onLoad="beforeZiDuanOptionLoad">
+            <column fieldType="object" component="objectSelectColumn" label="关联父类字段" name="guanLianFLZD" enabled="true" allowBlank="false" renderto="#guanLianFLZD" renderTemplate="{{guanLianFLZD.ziDuanBT}}" renderType="insert" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="remote" minLength="0" width="120px" height="150px">
               <dataset component="stlDataset" label="字段选择数据集" name="zdSelectDataset" autoLoad="false" xiTongDH="sys" shiTiLeiDH="SYS_ZiDuan" start="0" limit="0">
                 <properties component="properties">
                   <property component="simpleProperty" name="ziDuanDH" label="字段代号" fieldType="string"/>
@@ -120,7 +117,6 @@
           </columns>
         </grid>
       </field>
-      <field fieldType="string" component="stringEditor" name="shiTiLeiBB" label="实体类版本" renderType="insert" width="120px" height="22px" renderto="#shiTiLeiBB" renderTemplate="{{shiTiLeiBB}}" enabled="false" allowEdit="true" allowBlank="false" hidden="false"/>
     </fields>
     <buttons component="buttons">
       <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>

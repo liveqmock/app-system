@@ -40,7 +40,7 @@
 		}
 		var xmlParams = {};
 		if(_urlInfo.params._ps_!=null){
-			xmlParams = eval("("+_urlInfo.params._ps_+")");
+			xmlParams = eval("("+decodeURI(_urlInfo.params._ps_)+")");
 		}
 		LUI.Page.include(_pageInfo.htmlPage,xmlParams,'#_pageContent',true,function(currentPage){
 			//创建designer

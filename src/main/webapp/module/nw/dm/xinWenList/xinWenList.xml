@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="新闻-列表" onLoad="onPageRady">
+  <grid component="displayGrid" datasourceType="private" label="新闻列表" name="xinWenGrid" autoLoad="true" onRowRendered="onGridRowRender" autoRender="true" headerLines="1" footerLines="0" renderto="#zslist" pagiTarget="#zsListpage">
+    <dataset component="gnDataset" label="新闻集合数据源" name="xinWenListDataset" autoLoad="true" xiTongDH="nw" gongNengDH="xw" caoZuoDH="list" start="0" limit="12">
+      <properties component="properties">
+        <property component="simpleProperty" name="xinWenBT" label="新闻标题" fieldType="string"/>
+        <property component="simpleProperty" name="xinWenNR" label="新闻内容" fieldType="text"/>
+        <property component="complexProperty" name="xinWenLB" label="新闻类别" fieldType="object">
+          <properties component="properties">
+            <property component="simpleProperty" name="xinWenLBMC" label="xinWenLBMC" fieldType="string"/>
+          </properties>
+        </property>
+      </properties>
+      <filters component="filters"/>
+      <sorts component="sorts"/>
+    </dataset>
+    <columns component="gridColumns">
+      <column component="stringDisplayColumn" name="xinWenBT" label="新闻标题" fieldType="string" renderto="#GYS_gongHuoFW" renderTemplate="{{xinWenBT}}"/>
+      <column component="textDisplayColumn" name="xinWenNR" label="新闻内容" fieldType="text" renderto="#GYS_xinWenNR" renderTemplate="{{xinWenNR}}"/>
+      <column component="objectDisplayColumn" name="xinWenLB" label="新闻类别" fieldType="object" renderto="#xinWenLB" renderTemplate="{{xinWenLB.xinWenLBMC}}"/>
+    </columns>
+  </grid>
+  <import component="importSubpage" label="header" name="import_header" autoLoad="true" renderto="#header" pageURL="header/header.html">
+    <parameters component="parameters">
+      <parameter component="parameter" parameterType="string" label="参数" name="aaa" value="12"/>
+      <parameter component="parameter" parameterType="string" label="参数" name="bbb" value="33"/>
+    </parameters>
+  </import>
+  <import component="importSubpage" label="footer" name="import_footer" autoLoad="true" renderto="#footer" pageURL="footer/footer.html">
+    <parameters component="parameters"/>
+  </import>
+</page>

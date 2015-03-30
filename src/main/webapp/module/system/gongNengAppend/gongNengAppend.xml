@@ -37,10 +37,10 @@
       </properties>
     </record>
     <fields component="formFields">
-      <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="local" minLength="0" width="287px" height="150px">
+      <field fieldType="object" component="objectSelectEditor" name="xiTong" label="系统" renderType="insert" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}[{{xiTong.xiTongDH}}]" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" datasourceName="cmp_gnDataset_39" searchMode="local" minLength="0" width="287px" height="150px">
         <dataset component="stlDataset" label="系统数据集" name="xiTongDataset" autoLoad="true" xiTongDH="sys" start="0" limit="0" shiTiLeiDH="SYS_XiTong">
           <properties component="properties">
-            <property component="simpleProperty" name="xiTongDH" label="系统代号" fieldType="string"/>
+            <property component="simpleProperty" fieldType="string" label="系统代号" name="xiTongDH"/>
             <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
             <property component="simpleProperty" name="xiTongDM" label="系统代码" fieldType="int"/>
           </properties>

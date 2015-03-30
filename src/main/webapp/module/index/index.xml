@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<page component="page" needsLogin="true" label="华电重工管理信息系统-首页" onLoad="onIndexPageLoaded">
+<page component="page" needsLogin="true" label="单点登录-首页" onLoad="onIndexPageLoaded">
   <import component="importSubpage" label="header" name="import_header" autoLoad="true" renderto="#header" pageURL="header/header.html">
     <parameters component="parameters">
       <parameter component="parameter" parameterType="string" label="参数" name="aaa" value="12"/>

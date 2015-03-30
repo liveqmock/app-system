@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="subpage" needsLogin="true" label="实体类子表-新增" onLoad="onSubSTLPageRady" name="subStlAppend" width="420px" height="232px">
+  <form component="singleEditForm" label="实体类子表新增表单" name="subShiTiLeiAppendForm" datasourceType="private" autoLoad="true" renderto="#subShiTiLeiForm" renderType="rela" autoRender="true" xiTongDH="sys" gongNengDH="stl" caoZuoDH="append">
+    <record component="gnRecord" label="实体类子表数据记录" name="subShiTiLeiRecord" autoLoad="true" xiTongDH="sys" gongNengDH="stl" caoZuoDH="append">
+      <properties component="properties">
+        <property component="simpleProperty" name="shiTiLeiDH" label="实体类代号" fieldType="string"/>
+        <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
+        <property component="simpleProperty" name="biaoMing" label="数据库表名" fieldType="string"/>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field fieldType="string" component="stringEditor" name="shiTiLeiDH" label="实体类代号" renderType="insert" width="226px" height="29px" renderto="#subShiTiLeiDH" renderTemplate="{{shiTiLeiDH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="shiTiLeiMC" label="实体类名称" renderType="insert" width="226px" height="22px" renderto="#subShiTiLeiMC" renderTemplate="{{shiTiLeiMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+      <field fieldType="string" component="stringEditor" name="biaoMing" label="数据库表名" renderType="insert" width="226px" height="22px" renderto="#subBiaoMing" renderTemplate="{{biaoMing}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false"/>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#subSaveBtn"/>
+    </buttons>
+  </form>
+</page>

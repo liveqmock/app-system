@@ -87,7 +87,7 @@
 		var _urlInfo = LUI.Util.parseURL(window.location);
 		var noCacheFlag = Math.random();
 		var _isDesignMode = false;
-		if(_urlInfo.host == '127.0.0.1' && _urlInfo.port == "8080"){
+		if(_urlInfo.host == '127.0.0.1' ){
 			_isDesignMode = true;
 			noCacheFlag = 1;
 		}

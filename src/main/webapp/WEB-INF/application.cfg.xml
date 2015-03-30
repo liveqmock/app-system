@@ -1,4 +1,5 @@
-<!-- 配置当前系统所使用的参数（修改后需要重新启动）
+<!-- 这是个单点登录系统（统一身份管理平台）
+	暂时先做成了demo系统
 	name:当前系统名称
 	title:页面默认标题
 	src:系统源文件目录
@@ -8,14 +9,10 @@
 	webservicePort:当前系统webservice服务端口号
 	webserviceSrc:webservice客户端访问代码生成目标路径
  -->
-<application name="" title="华电重工管理信息系统" 
-			 src="D:/data/workspace/app-system/src/main/java/" 
-			 jdkPath="C:/java/jdk1.7.0_67/" 
-			 module="module" 
-			 ip="127.0.0.1" 
-			 port="8080" 
-			 webservicePort="1081"
-			 webserviceSrc="D:/data/workspace/nim-base/src/main/java/" >
+<application name="app-system" title="华电重工管理信息系统" 
+			 mode="plateform" module="module" 
+			 ip="127.0.0.1"  port="9090" webservicePort="1091">
+	<develop appSrcPath="D:/data/workspace/app-system/src/main/java/" jdkPath="C:/java/jdk1.7.0_67/" />
 	<pages>
 		<!-- 本系统登陆页面(必需) -->
 		<login page="/nim.html?_pt_=login/login.html"/>
@@ -29,9 +26,7 @@
 		<localComponent name="nim-data"/>
 		<localComponent name="nim-plateform"/>
 		<!--远程服务组件配置-->
-		<!--
-			<remoteComponent name="esb" ip="127.0.0.1" port="8081"/>
-		-->
+		<remoteComponent name="app-trans" ip="127.0.0.1" port="1081"/>
 	</components>
 	<!-- 数据配置-->
 	<sessionFactory cfgFileName="WEB-INF/hibernate.cfg.xml" >

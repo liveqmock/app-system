@@ -6,13 +6,13 @@
 		<servlet-class>com.poweruniverse.nim.plateform.servlet.ApplicationInitialServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- 定时任务 -->
+	<!-- 定时任务 
 	<servlet>
 		<servlet-name>scheduleTaskServlet</servlet-name>
 		<servlet-class>com.poweruniverse.nim.plateform.servlet.ScheduleTaskServlet</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
-
+-->
 	<!-- 接受客户端http请求 分发至适当的webservice服务 -->
 	<servlet>
 		<servlet-name>httpDispather</servlet-name>
@@ -64,7 +64,7 @@
 	
 	<!-- 默认首页 -->
 	<welcome-file-list>
-		<welcome-file>/nim.html?_pt_=module/index/index.html</welcome-file>
+		<welcome-file>/nim.html?_pt_=index/index.html</welcome-file>
 	</welcome-file-list>
 	
 	<!-- 监听客户端请求 记录在线及已登录用户数量 -->

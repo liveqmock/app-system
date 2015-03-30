@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="新闻-编辑">
+  <form component="singleEditForm" label="新闻编辑表单" name="xinWenEditForm" datasourceType="private" datasourceName="xinWenRecord" autoLoad="true" renderto="#xinWenForm" renderType="rela" autoRender="true" xiTongDH="nw" gongNengDH="xw" caoZuoDH="edit">
+    <record component="stlRecord" label="新闻数据记录" name="xinWenRecord" autoLoad="true" xiTongDH="nw" shiTiLeiDH="NW_DM_XinWen" id="${params.id}">
+      <properties component="properties">
+        <property component="simpleProperty" name="xinWenXH" label="新闻序号" fieldType="int"/>
+        <property component="complexProperty" name="xinWenLB" label="新闻类别" fieldType="object">
+          <properties component="properties">
+            <property component="simpleProperty" name="xinWenLBMC" label="xinWenLBMC" fieldType="string"/>
+          </properties>
+        </property>
+        <property component="simpleProperty" name="xinWenBT" label="新闻标题" fieldType="string"/>
+        <property component="simpleProperty" name="xinWenNR" label="新闻内容" fieldType="text"/>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field fieldType="int" component="intEditor" name="xinWenXH" label="新闻序号" renderType="insert" width="120px" height="22px" renderto="#xinWenDH" renderTemplate="{{xinWenXH}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" textAlign="right" zeroAsBlank="true"/>
+      <field fieldType="object" component="objectSelectEditor" name="xinWenLB" label="新闻类别" renderType="insert" renderto="#xinWenLB" renderTemplate="{{xinWenLB.xinWenLBMC}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" datasourceType="private" searchMode="local" minLength="0" width="120px" height="150px">
+        <dataset component="stlDataset" label="功能数据集(新闻类别-功能数据集)" name="cmp_gnDataset_13" autoLoad="true" start="0" limit="0" xiTongDH="nw" shiTiLeiDH="NW_DM_XinWenLB">
+          <properties component="properties">
+            <property component="simpleProperty" name="xinWenLBBH" label="xinWenLBBH" fieldType="string"/>
+            <property component="simpleProperty" name="xinWenLBMC" label="xinWenLBMC" fieldType="string"/>
+            <property component="simpleProperty" name="xinWenLBDM" label="xinWenLBDM" fieldType="int"/>
+          </properties>
+          <filters component="filters"/>
+          <sorts component="sorts"/>
+        </dataset>
+      </field>
+      <field component="stringEditor" renderType="insert" width="120px" height="22px" enabled="true" allowEdit="true" allowBlank="false" hidden="false" name="xinWenBT" label="新闻标题" fieldType="string" renderto="#xinWenBT" renderTemplate="{{xinWenBT}}"/>
+      <field fieldType="text" component="htmlEditor" name="xinWenNR" label="新闻内容" renderType="insert" width="563px" height="212px" renderto="#xinWenNR" renderTemplate="{{xinWenNR}}" enabled="true" allowEdit="true" allowBlank="false" hidden="false" popWidth="500px" popHeight="450px"/>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>
+    </buttons>
+  </form>
+</page>

@@ -6,7 +6,7 @@ import com.poweruniverse.nim.data.entity.sys.base.EntityI;
 /*
 * 实体类：新闻
 */
-@Version("2015-03-16 01:22:49")
+@Version("2015-03-30 10:54:36")
 public abstract class BaseXinWen  implements Serializable,Comparable<Object> ,EntityI {
 	private static final long serialVersionUID = 1L;
 	private int hashCode = Integer.MIN_VALUE;
@@ -49,6 +49,11 @@ public abstract class BaseXinWen  implements Serializable,Comparable<Object> ,En
 	public java.lang.String getXinWenNR(){return this.xinWenNR ;}
 	public void setXinWenNR(java.lang.String xinWenNR){this.xinWenNR = xinWenNR;}
 	
+	// 对象：新闻类别 （xinWenLB）
+	private com.poweruniverse.app.entity.nw.dm.XinWenLB xinWenLB;
+	public com.poweruniverse.app.entity.nw.dm.XinWenLB getXinWenLB(){return this.xinWenLB ;}
+	public void setXinWenLB(com.poweruniverse.app.entity.nw.dm.XinWenLB xinWenLB){this.xinWenLB = xinWenLB;}
+
 	public boolean equals (Object obj) {
 		if (null == obj) return false;
 		if (!(obj instanceof com.poweruniverse.app.entity.nw.dm.XinWen)) return false;
@@ -100,6 +105,7 @@ public abstract class BaseXinWen  implements Serializable,Comparable<Object> ,En
 		xinWen.setXinWenBT(xinWenBT);
 		xinWen.setXinWenXH(xinWenXH);
 		xinWen.setXinWenNR(xinWenNR);
+		xinWen.setXinWenLB(xinWenLB);
 		
 		return xinWen;
 	}

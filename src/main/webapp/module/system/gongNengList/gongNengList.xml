@@ -9,27 +9,29 @@
             <property component="simpleProperty" name="xiTongMC" label="系统名称" fieldType="string"/>
           </properties>
         </property>
-        <property component="complexProperty" name="shiTiLei" label="实体类" fieldType="object">
+        <property component="complexProperty" fieldType="object" label="实体类" name="shiTiLei">
           <properties component="properties">
             <property component="simpleProperty" name="shiTiLeiMC" label="实体类名称" fieldType="string"/>
             <property component="simpleProperty" name="shiTiLeiDM" label="实体类代码" fieldType="int"/>
+            <property component="simpleProperty" name="biaoMing" label="数据库表名" fieldType="string"/>
           </properties>
         </property>
-        <property component="simpleProperty" name="gongNengClass" label="功能实现类" fieldType="string"/>
-        <property component="simpleProperty" name="gongNengDH" label="功能代号" fieldType="string"/>
+        <property component="simpleProperty" fieldType="string" label="功能代号" name="gongNengDH"/>
         <property component="simpleProperty" name="gongNengMC" label="功能名称" fieldType="string"/>
+        <property component="simpleProperty" name="processStartAction" label="数据启动事件" fieldType="string"/>
+        <property component="simpleProperty" name="processEndAction" label="数据结束事件" fieldType="string"/>
       </properties>
       <filters component="filters"/>
       <sorts component="sorts"/>
     </dataset>
     <columns component="gridColumns">
-      <column fieldType="int" component="gridColumn" label="行号" name="@index" renderto="#GYS_xuHao" renderTemplate="{{@index}}"/>
-      <column component="gridColumn" name="xiTong" label="系统名称" fieldType="object" renderto="#GYS_gongHuoFW" renderTemplate="{{xiTong.xiTongMC}}"/>
-      <column component="gridColumn" name="shiTiLeiClassName" label="JAVA类名" fieldType="string" renderto="#GYS_piZhunRQ" renderTemplate="{{shiTiLeiClassName}}"/>
-      <column component="gridColumn" name="gongNengDH" label="功能代号" fieldType="string" renderto="#GYS_gongFangBH" renderTemplate="{{gongNengDH}}"/>
-      <column component="gridColumn" name="gongNengMC" label="功能名称" fieldType="string" renderto="#GYS_gongYingSMC" renderTemplate="{{gongNengMC}}"/>
-      <column component="gridColumn" name="shiTiLei" label="实体类" fieldType="object" renderto="#GYS_shiYeB" renderTemplate="{{shiTiLei.shiTiLeiMC}}"/>
-      <column component="gridColumn" name="gongNengClass" label="功能实现类" fieldType="string" renderto="#GYS_gongFangDJ" renderTemplate="{{gongNengClass}}"/>
+      <column fieldType="int" component="intDisplayColumn" label="行号" name="@index" renderto="#xuHao" renderTemplate="{{@index}}" textAlign="center"/>
+      <column fieldType="object" component="objectDisplayColumn" label="系统" name="xiTong" renderto="#xiTong" renderTemplate="{{xiTong.xiTongMC}}"/>
+      <column fieldType="string" component="stringDisplayColumn" label="功能代号" name="gongNengDH" renderto="#gongNengDH" renderTemplate="{{gongNengDH}}"/>
+      <column fieldType="string" component="stringDisplayColumn" label="功能名称" name="gongNengMC" renderto="#gongNengMC" renderTemplate="{{gongNengMC}}"/>
+      <column fieldType="object" component="objectDisplayColumn" label="实体类" name="shiTiLei" renderto="#shiTiLei" renderTemplate="{{shiTiLei.shiTiLeiMC}}[{{shiTiLei.biaoMing}}]"/>
+      <column component="stringDisplayColumn" name="processStartAction" label="数据启动事件" fieldType="string" renderto="#processStartAction" renderTemplate="{{processStartAction}}"/>
+      <column component="stringDisplayColumn" name="processEndAction" label="数据结束事件" fieldType="string" renderto="#processEndAction" renderTemplate="{{processEndAction}}"/>
     </columns>
   </grid>
 </page>

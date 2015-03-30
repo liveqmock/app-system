@@ -6,11 +6,11 @@
 .content_box01{ width:1100px; }
 .hhi_form_box01{ width:1100px; height:540px; padding-top:10px;list-style: none outside none;}
 .hhi_form_box01 li{ width:1100px; line-height:28px;  margin-top:10px; font-size:14px; float:left;}
-.hhi_form_box01 li .l_title{ width:110px; display:block; float:left; line-height:28px; text-align:right;}
+.hhi_form_box01 li .l_title{ width:140px; display:block; float:left; line-height:28px; text-align:right;}
 .hhi_form_box01 li .r_input{ width:260px; margin-left:10px; float:left;}
 .hhi_form_box01 li .r_input .input_bor{ font-size:14px; color:#666; border:#ddd 1px solid; background:#fff; width:240px; height:20px; line-height:22px; padding:0 5px; font-family:"Microsoft YaHei"}
 .hhi_form_box01 li .r_input .textarea_bor{ font-size:14px; color:#666; border:#ddd 1px solid; background:#fff; line-height:22px; padding:0 5px; font-family:"Microsoft YaHei"}
-.submit_icon{ width:120px; height:28px; line-height:28px; text-align:center; background:#6f91bb; color:#fff; cursor:pointer; font-size:14px; display:block; float:left; margin-left:10px;}
+.submit_icon{ width:120px; height:28px; line-height:28px; text-align:center; background:#6f91bb; color:#fff; cursor:pointer; font-size:14px; display:block; float:left;}
 .submit_icon:hover{ background:#358;}
 
 
@@ -91,7 +91,7 @@
 
 
 /**列表list begin**/
-.hhi_list02{ width:980px; background:#fefefe; border:#ddd 1px solid; margin-top:15px;}
+.hhi_list02{ width:950px; background:#fefefe; border:#ddd 1px solid; margin-top:15px;}
 .hhi_list02 .content{ list-style:none; padding:0; margin:0; }
 .hhi_list02 li{ font-size:12px; text-align:left; white-space:nowrap; word-break:keep-all; float:left; width:100%; margin-top:5px; color:#666; line-height:24px;}
 .li_hoverbg:hover{ color:#f60;}

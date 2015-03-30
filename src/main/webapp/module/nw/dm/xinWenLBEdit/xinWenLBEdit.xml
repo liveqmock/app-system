@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<page component="page" needsLogin="true" label="新闻类别-编辑">
+  <form component="singleEditForm" label="新闻类别编辑表单" name="xinWenLBEditForm" datasourceType="private" datasourceName="xinWenRecord" autoLoad="true" renderto="#xinWenLBForm" renderType="rela" autoRender="true" xiTongDH="nw" gongNengDH="xwlb" caoZuoDH="edit">
+    <record component="gnRecord" label="新闻数据类别记录" name="xinWenLBAppendRecord" autoLoad="true" xiTongDH="nw" gongNengDH="xwlb" caoZuoDH="edit" id="${params.id}">
+      <properties component="properties">
+        <property component="simpleProperty" name="xinWenLBBH" label="xinWenLBBH" fieldType="string"/>
+        <property component="simpleProperty" name="xinWenLBMC" label="xinWenLBMC" fieldType="string"/>
+      </properties>
+    </record>
+    <fields component="formFields">
+      <field component="stringEditor" renderType="insert" width="120px" height="22px" enabled="true" allowEdit="true" allowBlank="false" hidden="false" name="xinWenLBBH" label="xinWenLBBH" fieldType="string" renderto="#xinWenLBDH" renderTemplate="{{xinWenLBBH}}"/>
+      <field component="stringEditor" renderType="insert" width="120px" height="22px" enabled="true" allowEdit="true" allowBlank="false" hidden="false" name="xinWenLBMC" label="xinWenLBMC" fieldType="string" renderto="#xinWenLBMC" renderTemplate="{{xinWenLBMC}}"/>
+    </fields>
+    <buttons component="buttons">
+      <submit component="submitButton" name="submitButton" label="提交按钮" enabled="true" renderType="rela" renderto="#saveBtn"/>
+    </buttons>
+  </form>
+</page>

@@ -38,6 +38,16 @@
 .hhi_btns{ height:22px; line-height:16px; float:left; cursor:pointer; text-align:center; color:#666; margin-right:10px; padding:0 7px; font-family:"Microsoft YaHei";background-color:#f5f5f5; border:#ddd 1px solid;}
 .hhi_btns:hover{color:#fff; background-color:#358; border:#358 1px solid;}
 
+.base-icon04 {
+    background-image: url("images/base-icon4.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    margin-top: 3px;
+    width: 16px;
+}
+
 /**导出按钮**/
 .hhi_daochu{ background-position:5px -131px; }
 
