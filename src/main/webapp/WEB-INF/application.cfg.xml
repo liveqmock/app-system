@@ -11,7 +11,7 @@
  -->
 <application name="app-system" title="华电重工管理信息系统" 
 			 mode="plateform" module="module" 
-			 ip="127.0.0.1"  port="9090" webservicePort="1091">
+			 ip="127.0.0.1"  port="8082" webservicePort="1092">
 	<develop appSrcPath="D:/data/workspace/app-system/src/main/java/" jdkPath="C:/java/jdk1.7.0_67/" />
 	<pages>
 		<!-- 本系统登陆页面(必需) -->
@@ -25,8 +25,8 @@
 		<!--本地服务组件配置-->
 		<localComponent name="nim-data"/>
 		<localComponent name="nim-plateform"/>
-		<!--远程服务组件配置-->
-		<remoteComponent name="app-trans" ip="127.0.0.1" port="1081"/>
+		<!--远程服务组件配置
+		<remoteComponent name="app-trans" ip="127.0.0.1" port="1081"/>-->
 	</components>
 	<!-- 数据配置-->
 	<sessionFactory cfgFileName="WEB-INF/hibernate.cfg.xml" >

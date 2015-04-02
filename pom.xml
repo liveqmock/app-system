@@ -47,9 +47,9 @@
 	            <configuration>
 	            	<connectors>  
 			            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">  
-			                <port>9090</port>  
+			                <port>8082</port>  
 			            </connector>  
-			        </connectors>     
+			        </connectors>
 					<contextPath>/</contextPath>
 					<webDefaultXml>src/main/webapp/WEB-INF/jetty-default.xml</webDefaultXml> 
 				</configuration>  
